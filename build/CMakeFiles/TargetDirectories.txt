@@ -1,0 +1,3 @@
+C:/Users/kamer/Documents/C++ Capstone/build/CMakeFiles/chess.dir
+C:/Users/kamer/Documents/C++ Capstone/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/kamer/Documents/C++ Capstone/build/CMakeFiles/ZERO_CHECK.dir
