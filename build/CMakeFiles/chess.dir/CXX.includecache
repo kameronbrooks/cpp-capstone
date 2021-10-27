@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
+cell.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
+input_controller.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
+renderer.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
+board.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/main.cpp
+iostream
+-
+game.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
+
