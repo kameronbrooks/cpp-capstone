@@ -215,6 +215,9 @@ Chess_BINARY_DIR:STATIC=/home/kameron/Documents/code/cpp capstone/cpp-capstone/b
 //Value Computed by CMake
 Chess_SOURCE_DIR:STATIC=/home/kameron/Documents/code/cpp capstone/cpp-capstone
 
+//The directory containing a CMake configuration file for SDL2.
+SDL2_DIR:PATH=/lib/x86_64-linux-gnu/cmake/SDL2
+
 
 ########################
 # INTERNAL cache entries

@@ -3,9 +3,12 @@
 
 #include "cell.h"
 
+#define BOARD_WIDTH 8
+#define BOARD_HEIGHT 8
+
 class Board {
 private:
-    Cell cells[8][8];
+    Cell cells[BOARD_WIDTH][BOARD_HEIGHT];
 public:
     Cell& getCell(int x, int y);
 };

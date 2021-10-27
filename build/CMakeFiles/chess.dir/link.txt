@@ -1,1 +1,1 @@
-/bin/c++     CMakeFiles/chess.dir/src/main.cpp.o  -o chess 
+/bin/c++     CMakeFiles/chess.dir/src/main.cpp.o  -o chess  -lSDL2 

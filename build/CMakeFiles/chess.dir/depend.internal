@@ -5,6 +5,9 @@ CMakeFiles/chess.dir/src/main.cpp.o
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/main.cpp
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h

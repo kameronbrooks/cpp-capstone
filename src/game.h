@@ -3,21 +3,27 @@
 #include "input_controller.h"
 #include "renderer.h"
 #include "board.h"
+#include "game_state.h"
 
 class Game {
 private:
     Game();
     static Game _instance;
+    GameState _state;
+
 
     InputController _input;
     Renderer _renderer;
     
-    Board _board;
+    
 
 public:
     static Game initializeGame(InputController&& input, Renderer&& renderer);
 
     static Game getInstance();
+
+    void StartGame();
+    GameState& getState();
 };
 
 #endif
