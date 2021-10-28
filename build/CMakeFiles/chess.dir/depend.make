@@ -10,4 +10,12 @@ CMakeFiles/chess.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/piece.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/piece_type.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/renderer.h
+CMakeFiles/chess.dir/src/main.cpp.o: ../src/sprite.h
+
+CMakeFiles/chess.dir/src/renderer.cpp.o: ../src/renderer.cpp
+CMakeFiles/chess.dir/src/renderer.cpp.o: ../src/renderer.h
+CMakeFiles/chess.dir/src/renderer.cpp.o: ../src/sprite.h
+
+CMakeFiles/chess.dir/src/sprite.cpp.o: ../src/sprite.cpp
+CMakeFiles/chess.dir/src/sprite.cpp.o: ../src/sprite.h
 

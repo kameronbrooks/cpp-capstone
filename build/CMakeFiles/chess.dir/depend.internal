@@ -11,3 +11,11 @@ CMakeFiles/chess.dir/src/main.cpp.o
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
+CMakeFiles/chess.dir/src/renderer.cpp.o
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.cpp
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
+CMakeFiles/chess.dir/src/sprite.cpp.o
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.cpp
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
