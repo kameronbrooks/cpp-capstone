@@ -123,6 +123,60 @@ chess/fast:
 	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/build
 .PHONY : chess/fast
 
+src/game.o: src/game.cpp.o
+
+.PHONY : src/game.o
+
+# target to build an object file
+src/game.cpp.o:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/game.cpp.o
+.PHONY : src/game.cpp.o
+
+src/game.i: src/game.cpp.i
+
+.PHONY : src/game.i
+
+# target to preprocess a source file
+src/game.cpp.i:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/game.cpp.i
+.PHONY : src/game.cpp.i
+
+src/game.s: src/game.cpp.s
+
+.PHONY : src/game.s
+
+# target to generate assembly for a file
+src/game.cpp.s:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/game.cpp.s
+.PHONY : src/game.cpp.s
+
+src/input_controller.o: src/input_controller.cpp.o
+
+.PHONY : src/input_controller.o
+
+# target to build an object file
+src/input_controller.cpp.o:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/input_controller.cpp.o
+.PHONY : src/input_controller.cpp.o
+
+src/input_controller.i: src/input_controller.cpp.i
+
+.PHONY : src/input_controller.i
+
+# target to preprocess a source file
+src/input_controller.cpp.i:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/input_controller.cpp.i
+.PHONY : src/input_controller.cpp.i
+
+src/input_controller.s: src/input_controller.cpp.s
+
+.PHONY : src/input_controller.s
+
+# target to generate assembly for a file
+src/input_controller.cpp.s:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/input_controller.cpp.s
+.PHONY : src/input_controller.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -213,6 +267,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... chess"
+	@echo "... src/game.o"
+	@echo "... src/game.i"
+	@echo "... src/game.s"
+	@echo "... src/input_controller.o"
+	@echo "... src/input_controller.i"
+	@echo "... src/input_controller.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

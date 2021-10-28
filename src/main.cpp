@@ -10,15 +10,17 @@ const int SCREEN_HEIGHT = 480;
 
 int main() {
 
-    Renderer renderer(SCREEN_WIDTH, SCREEN_HEIGHT);
-    Sprite* sprite = renderer.LoadSprite("../img/king_black.png");
+    //InputController controller;
+    //Sprite* sprite = renderer.LoadSprite("../img/king_black.png");
+    Game game;
 
-    renderer.clear();
-    renderer.drawSprite(sprite, 100,10, 100,100);
+    game.StartGame();
+    //renderer.clear();
+    //renderer.drawSprite(sprite, 100,10, 100,100);
 
-    renderer.updateScreen();
+    //renderer.updateScreen();
 
-    SDL_Delay(2000);
+    //SDL_Delay(2000);
 
     std::cout << " Project" <<std::endl;
     std::cin;

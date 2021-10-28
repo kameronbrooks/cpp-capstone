@@ -35,6 +35,8 @@ piece.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
+SDL2/SDL.h
+-
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/main.cpp
 iostream

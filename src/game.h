@@ -5,25 +5,35 @@
 #include "board.h"
 #include "game_state.h"
 
-class Game {
+class Game: public InputControllerTarget  {
 private:
-    Game();
-    static Game _instance;
-    GameState _state;
+    
+    static Game* _instance;
+    GameState* _state;
 
 
     InputController _input;
     Renderer _renderer;
+    bool _running;
     
     
-
+    
 public:
-    static Game initializeGame(InputController&& input, Renderer&& renderer);
+    Game();
+    ~Game();
 
-    static Game getInstance();
+    static Game* getInstance();
 
     void StartGame();
-    GameState& getState();
+    GameState* getState();
+
+    void render();
+
+    void onExitApplication();
+    void onMouseDown(int x, int y);
+    void onMouseUp(int x, int y);
+    void onMouseMove(int x, int y);
+    
 };
 
 #endif
