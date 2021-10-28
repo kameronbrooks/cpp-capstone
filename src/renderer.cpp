@@ -1,5 +1,5 @@
 #include "renderer.h"
-#include <SDL2/SDL_image.h>
+
 
 
 Renderer::Renderer(int windowWidth, int windowHeight) {
@@ -16,22 +16,43 @@ Renderer::Renderer(int windowWidth, int windowHeight) {
         throw "failed to load img module";
     }
 
-    _surface = SDL_GetWindowSurface(_window);
+    _sdlRenderer = SDL_CreateRenderer( _window, -1, SDL_RENDERER_ACCELERATED );
 
-    SDL_FillRect(_surface, NULL, SDL_MapRGB( _surface->format, 0xFF, 0xFF, 0xFF));
+    SDL_SetRenderDrawColor( _sdlRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
 
-    SDL_UpdateWindowSurface(_window);
-
-    SDL_Delay(2000);
+    
 
 
 }
+
+void Renderer::clear() {
+    SDL_RenderClear(_sdlRenderer);
+}
+void Renderer::updateScreen() {
+    SDL_RenderPresent(_sdlRenderer);
+}
+
+Sprite* Renderer::LoadSprite(std::string&& path) {
+    SDL_Surface* temp = IMG_Load(path.c_str());
+    if (temp == nullptr) {
+        throw "Failed to load image file: " + path;
+    }
+    SDL_Texture* tex = SDL_CreateTextureFromSurface( _sdlRenderer , temp );
+    
+    Sprite* output = new Sprite(tex, temp->w, temp->h);
+
+    SDL_FreeSurface(temp);
+
+    return output;
+}
+
+
 Renderer::Renderer(Renderer&& other) {
-    _surface = other._surface;
+    _sdlRenderer = other._sdlRenderer;
     _window = other._window;
 
     other._window = nullptr;
-    other._surface = nullptr;
+    other._sdlRenderer = nullptr;
 }
 Renderer::Renderer(const Renderer& other) {
     
@@ -42,10 +63,10 @@ Renderer& Renderer::operator=(const Renderer& other) {
 }
 Renderer& Renderer::operator=(Renderer&& other) {
     if(&other != this) {
-        _surface = other._surface;
+        _sdlRenderer = other._sdlRenderer;
         _window = other._window;
 
-        other._surface = nullptr;
+        other._sdlRenderer = nullptr;
         other._window = nullptr;
     }
     return *this;
@@ -57,11 +78,13 @@ void Renderer::drawSprite(Sprite* sprite, int x, int y, int w, int h) {
     rect.y = y;
     rect.w = w;
     rect.h = h;
-    //SDL_BlitScaled(_handle, NULL, )
+    SDL_RenderCopy(_sdlRenderer,sprite->_handle, NULL, &rect);
 }
+
     
 Renderer::~Renderer() {
-    SDL_FreeSurface(_surface);
+    SDL_DestroyRenderer(_sdlRenderer);
     SDL_DestroyWindow(_window);
+    IMG_Quit();
     SDL_Quit();
 }

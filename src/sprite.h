@@ -5,6 +5,7 @@
 #include <string>
 #include <mutex>
 
+class Renderer;
 
 class Sprite {
 public:
@@ -23,15 +24,18 @@ public:
      State getState() const;
      bool isLoaded() const;
 
-     SDL_Surface* dataHandle() const;
+     SDL_Texture* dataHandle() const;
+     
 private:
-    SDL_Surface* _handle;
+    SDL_Texture* _handle;
     int _width;
     int _height;
     State _state;
     std::mutex _mutex;
     
-    Sprite(SDL_Surface* handle, int width, int height);
+    Sprite(SDL_Texture* handle, int width, int height);
+
+    friend class Renderer;
 
 };
 

@@ -15,7 +15,7 @@ Sprite::Sprite(Sprite&& other) {
     other._state = State::Empty;
 }
 Sprite& Sprite::operator=(const Sprite& other) {
-    throw "Cannot copy texture this way";
+    throw "Cannot copy sprite this way";
 }
 Sprite& Sprite::operator=(Sprite&& other) {
     if (&other != this) {
@@ -33,7 +33,7 @@ Sprite& Sprite::operator=(Sprite&& other) {
 }
 Sprite::~Sprite() {
     if(_handle != nullptr) {
-        SDL_FreeSurface(_handle);
+        SDL_DestroyTexture(_handle);
     }
     _handle = nullptr;
     _state = State::Empty;
@@ -43,11 +43,9 @@ Sprite::~Sprite() {
 }
 
 
-Sprite* Sprite::LoadPNG(std::string path) {
-    
-}
 
-SDL_Surface* Sprite::dataHandle() const {
+
+SDL_Texture* Sprite::dataHandle() const {
     return _handle;
 }
 
@@ -62,6 +60,9 @@ bool Sprite::isLoaded() const {
     return _state == State::Loaded;
 }
 
-Sprite::Sprite(SDL_Surface* handle, int width, int height) {
-
+Sprite::Sprite(SDL_Texture* handle, int width, int height) {
+    _state = State::Loaded;
+    _handle = handle;
+    _width = width;
+    _height = height;
 }
