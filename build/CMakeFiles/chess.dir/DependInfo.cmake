@@ -4,9 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/board.cpp.o"
+  "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/cell.cpp.o"
+  "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/color.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/color.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/game.cpp.o"
+  "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/game_state.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/input_controller.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/main.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/main.cpp.o"
+  "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/piece.cpp.o"
+  "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/piece_type.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/renderer.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/sprite.cpp.o"
   )

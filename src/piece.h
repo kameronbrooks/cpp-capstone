@@ -3,6 +3,10 @@
 
 #include "cell.h"
 #include "piece_type.h"
+#include "globals.h"
+
+class Renderer;
+
 
 class Piece {
 private:
@@ -10,19 +14,27 @@ private:
     bool _captured;
     Cell* _currentCell;
     PieceType* _pieceType;
+    PieceTeam _team;
 public:
     Piece();
+    Piece(PieceType* pieceType, PieceTeam team);
     Piece(const Piece& other);
     Piece(Piece&& other);
     Piece& operator=(const Piece& other);
     Piece& operator=(Piece&& other);
 
     int getTimesMoved();
-    void MoveTo(Cell cell);
+    void moveTo(Cell* cell);
 
-    Cell* GetCell();
-    PieceType* GetPieceType();
-    void SetPieceType(PieceType* type);
+    Cell* getCell();
+    PieceType* getPieceType();
+    void setPieceType(PieceType* type);
+    PieceTeam getPieceTeam();
+    void setPieceTeam(PieceTeam team);
+
+    void draw(Renderer* renderer);
+
+    
 };
 
 #endif

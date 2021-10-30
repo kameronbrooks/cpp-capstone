@@ -1,22 +1,30 @@
 #ifndef PIECE_TYPE_H
 #define PIECE_TYPE_H
 #include <string>
+#include "sprite.h"
+#include "globals.h"
 
 class Game;
 class Piece;
 class GameState;
 
+
 class PieceType {
+protected:
+    std::unique_ptr<Sprite> _whiteSprite;
+    std::unique_ptr<Sprite> _blackSprite;
+    std::string _name;
 public:
 
-private:
     std::string getName();
-    int getId();
+    virtual int getId()=0;
 
-    void OnTurnStart(GameState* gameState, Piece* piece);
-    void OnTurnEnd(GameState* gameState, Piece* piece);
+    virtual void onTurnStart(GameState* gameState, Piece* piece);
+    virtual void onTurnEnd(GameState* gameState, Piece* piece);
 
-    void CalculateMoves(Piece* piece);
+    virtual void calculateMoves(Piece* piece, GameState* gameState )=0;
+
+    Sprite* getSprite(PieceTeam team);
 
 
 };

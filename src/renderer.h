@@ -4,11 +4,14 @@
 #include <SDL2/SDL_image.h>
 #include <memory>
 #include "sprite.h"
+#include "color.h"
 
 class Renderer {
 private:
     SDL_Window* _window;
     SDL_Renderer* _sdlRenderer;
+    int _windowWidth;
+    int _windowHeight;
 
 public:
     Renderer(int windowWidth, int windowHeight);
@@ -21,7 +24,10 @@ public:
     Sprite* LoadSprite(std::string&& path);
 
     void drawSprite(Sprite* sprite, int x, int y, int w, int h);
+    void drawRect(int x, int y, int w, int h, Color& color);
 
+    int windowWidth();
+    int windowHeight();
 
     void clear();
     void updateScreen();

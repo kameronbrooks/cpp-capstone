@@ -2,15 +2,21 @@
 #define BOARD_H
 
 #include "cell.h"
+#include "globals.h"
 
-#define BOARD_WIDTH 8
-#define BOARD_HEIGHT 8
+
+class Renderer;
 
 class Board {
 private:
     Cell cells[BOARD_WIDTH][BOARD_HEIGHT];
 public:
-    Cell& getCell(int x, int y);
+    Board();
+    Cell* getCell(int x, int y);
+    void draw(Renderer* renderer);
+
+
+
 };
 
 #endif

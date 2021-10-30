@@ -9,7 +9,7 @@
 class Game;
 
 class GameState {
-public:
+private:
     Game* _game;
     int _currentTurn;
     Board _board;
@@ -18,7 +18,8 @@ public:
     std::vector<std::unique_ptr<Piece>> _blackPieces;
 
 
-private:
+public:
+    GameState(Game*game);
     Game* getGame();
     int currentTurn();
     int currentPlayerIndex();
@@ -26,11 +27,11 @@ private:
 
     Board& getBoard();
 
-    void MovePiece(Piece* piece, Cell* cell);
-    void MovePiece(Piece* piece, int x, int y);
+    void movePiece(Piece* piece, Cell* cell);
+    void movePiece(Piece* piece, int x, int y);
 
-    void RemovePiece(Piece* piece);
-    void RemovePiece(int x, int y);
+    void removePiece(Piece* piece);
+    void removePiece(int x, int y);
 
 
 };

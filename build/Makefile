@@ -123,6 +123,87 @@ chess/fast:
 	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/build
 .PHONY : chess/fast
 
+src/board.o: src/board.cpp.o
+
+.PHONY : src/board.o
+
+# target to build an object file
+src/board.cpp.o:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/board.cpp.o
+.PHONY : src/board.cpp.o
+
+src/board.i: src/board.cpp.i
+
+.PHONY : src/board.i
+
+# target to preprocess a source file
+src/board.cpp.i:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/board.cpp.i
+.PHONY : src/board.cpp.i
+
+src/board.s: src/board.cpp.s
+
+.PHONY : src/board.s
+
+# target to generate assembly for a file
+src/board.cpp.s:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/board.cpp.s
+.PHONY : src/board.cpp.s
+
+src/cell.o: src/cell.cpp.o
+
+.PHONY : src/cell.o
+
+# target to build an object file
+src/cell.cpp.o:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/cell.cpp.o
+.PHONY : src/cell.cpp.o
+
+src/cell.i: src/cell.cpp.i
+
+.PHONY : src/cell.i
+
+# target to preprocess a source file
+src/cell.cpp.i:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/cell.cpp.i
+.PHONY : src/cell.cpp.i
+
+src/cell.s: src/cell.cpp.s
+
+.PHONY : src/cell.s
+
+# target to generate assembly for a file
+src/cell.cpp.s:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/cell.cpp.s
+.PHONY : src/cell.cpp.s
+
+src/color.o: src/color.cpp.o
+
+.PHONY : src/color.o
+
+# target to build an object file
+src/color.cpp.o:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/color.cpp.o
+.PHONY : src/color.cpp.o
+
+src/color.i: src/color.cpp.i
+
+.PHONY : src/color.i
+
+# target to preprocess a source file
+src/color.cpp.i:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/color.cpp.i
+.PHONY : src/color.cpp.i
+
+src/color.s: src/color.cpp.s
+
+.PHONY : src/color.s
+
+# target to generate assembly for a file
+src/color.cpp.s:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/color.cpp.s
+.PHONY : src/color.cpp.s
+
 src/game.o: src/game.cpp.o
 
 .PHONY : src/game.o
@@ -149,6 +230,33 @@ src/game.s: src/game.cpp.s
 src/game.cpp.s:
 	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/game.cpp.s
 .PHONY : src/game.cpp.s
+
+src/game_state.o: src/game_state.cpp.o
+
+.PHONY : src/game_state.o
+
+# target to build an object file
+src/game_state.cpp.o:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/game_state.cpp.o
+.PHONY : src/game_state.cpp.o
+
+src/game_state.i: src/game_state.cpp.i
+
+.PHONY : src/game_state.i
+
+# target to preprocess a source file
+src/game_state.cpp.i:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/game_state.cpp.i
+.PHONY : src/game_state.cpp.i
+
+src/game_state.s: src/game_state.cpp.s
+
+.PHONY : src/game_state.s
+
+# target to generate assembly for a file
+src/game_state.cpp.s:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/game_state.cpp.s
+.PHONY : src/game_state.cpp.s
 
 src/input_controller.o: src/input_controller.cpp.o
 
@@ -203,6 +311,60 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/piece.o: src/piece.cpp.o
+
+.PHONY : src/piece.o
+
+# target to build an object file
+src/piece.cpp.o:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece.cpp.o
+.PHONY : src/piece.cpp.o
+
+src/piece.i: src/piece.cpp.i
+
+.PHONY : src/piece.i
+
+# target to preprocess a source file
+src/piece.cpp.i:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece.cpp.i
+.PHONY : src/piece.cpp.i
+
+src/piece.s: src/piece.cpp.s
+
+.PHONY : src/piece.s
+
+# target to generate assembly for a file
+src/piece.cpp.s:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece.cpp.s
+.PHONY : src/piece.cpp.s
+
+src/piece_type.o: src/piece_type.cpp.o
+
+.PHONY : src/piece_type.o
+
+# target to build an object file
+src/piece_type.cpp.o:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece_type.cpp.o
+.PHONY : src/piece_type.cpp.o
+
+src/piece_type.i: src/piece_type.cpp.i
+
+.PHONY : src/piece_type.i
+
+# target to preprocess a source file
+src/piece_type.cpp.i:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece_type.cpp.i
+.PHONY : src/piece_type.cpp.i
+
+src/piece_type.s: src/piece_type.cpp.s
+
+.PHONY : src/piece_type.s
+
+# target to generate assembly for a file
+src/piece_type.cpp.s:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece_type.cpp.s
+.PHONY : src/piece_type.cpp.s
 
 src/renderer.o: src/renderer.cpp.o
 
@@ -267,15 +429,33 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... chess"
+	@echo "... src/board.o"
+	@echo "... src/board.i"
+	@echo "... src/board.s"
+	@echo "... src/cell.o"
+	@echo "... src/cell.i"
+	@echo "... src/cell.s"
+	@echo "... src/color.o"
+	@echo "... src/color.i"
+	@echo "... src/color.s"
 	@echo "... src/game.o"
 	@echo "... src/game.i"
 	@echo "... src/game.s"
+	@echo "... src/game_state.o"
+	@echo "... src/game_state.i"
+	@echo "... src/game_state.s"
 	@echo "... src/input_controller.o"
 	@echo "... src/input_controller.i"
 	@echo "... src/input_controller.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/piece.o"
+	@echo "... src/piece.i"
+	@echo "... src/piece.s"
+	@echo "... src/piece_type.o"
+	@echo "... src/piece_type.i"
+	@echo "... src/piece_type.s"
 	@echo "... src/renderer.o"
 	@echo "... src/renderer.i"
 	@echo "... src/renderer.s"

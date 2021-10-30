@@ -4,12 +4,13 @@
 #include "renderer.h"
 #include "board.h"
 #include "game_state.h"
+#include "globals.h"
 
 class Game: public InputControllerTarget  {
 private:
     
     static Game* _instance;
-    GameState* _state;
+    std::unique_ptr<GameState> _state;
 
 
     InputController _input;

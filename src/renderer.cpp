@@ -20,12 +20,15 @@ Renderer::Renderer(int windowWidth, int windowHeight) {
 
     SDL_SetRenderDrawColor( _sdlRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
 
+    _windowWidth = windowWidth;
+    _windowHeight = windowHeight;
     
 
 
 }
 
 void Renderer::clear() {
+    SDL_SetRenderDrawColor( _sdlRenderer, 0, 0, 0, 0 );
     SDL_RenderClear(_sdlRenderer);
 }
 void Renderer::updateScreen() {
@@ -75,10 +78,27 @@ Renderer& Renderer::operator=(Renderer&& other) {
 void Renderer::drawSprite(Sprite* sprite, int x, int y, int w, int h) {
     SDL_Rect rect;
     rect.x = x;
-    rect.y = y;
+    rect.y = _windowHeight - h - y;
     rect.w = w;
     rect.h = h;
     SDL_RenderCopy(_sdlRenderer,sprite->_handle, NULL, &rect);
+}
+
+void Renderer::drawRect(int x, int y, int w, int h, Color& color) {
+    SDL_Rect rect;
+    rect.x = x;
+    rect.y = _windowHeight - h - y;
+    rect.w = w;
+    rect.h = h;
+    SDL_SetRenderDrawColor(_sdlRenderer, color[0], color[1], color[2], color[3]);
+    SDL_RenderFillRect(_sdlRenderer, &rect);
+}
+
+int Renderer::windowWidth() {
+    return _windowWidth;
+}
+int Renderer::windowHeight() {
+    return _windowHeight;
 }
 
     

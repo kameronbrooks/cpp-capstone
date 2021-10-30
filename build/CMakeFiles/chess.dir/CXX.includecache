@@ -6,75 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.cpp
 cell.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
+globals.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
-input_controller.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
-renderer.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
-board.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
-game_state.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
-
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
 string
+-
+iostream
 -
 vector
 -
 memory
 -
-board.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
-piece.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
-
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
-SDL2/SDL.h
--
-
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/main.cpp
-iostream
--
-renderer.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
-input_controller.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
-game.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
-
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
-cell.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
-piece_type.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
-
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
-string
--
-
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
-SDL2/SDL.h
--
-SDL2/SDL_image.h
--
-memory
--
-sprite.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
-
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
-SDL2/SDL.h
--
-SDL2/SDL_image.h
--
-string
--
-mutex
+thread
 -
 
