@@ -12,6 +12,8 @@
 
 #define WINDOW_SIZE 800
 
+#define TARGET_FRAME_RATE_MILIS 1000 / 30
+
 enum PieceTeam {White = 0, Black = 1};
 
 

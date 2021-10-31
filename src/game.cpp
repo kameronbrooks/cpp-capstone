@@ -50,14 +50,23 @@ void Game::startGame() {
     
     _running = true;
     _state = std::make_unique<GameState>(this);
-
+    _accum = 0;
+    _lastTime = std::chrono::high_resolution_clock::now();
     placePieces();
 
     while(_running) {
+        auto now = std::chrono::high_resolution_clock::now();
+        _accum += std::chrono::duration_cast<std::chrono::milliseconds>(now-_lastTime).count();
         _input.pollEvents();
-        _renderer.clear();
-        render();
-        _renderer.updateScreen();
+        
+        if(_accum >= TARGET_FRAME_RATE_MILIS) {
+            _renderer.clear();
+            render();
+            _renderer.updateScreen();
+            _accum -= TARGET_FRAME_RATE_MILIS;
+        }
+        _lastTime = now;
+        
     }
     
 }

@@ -1,5 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
+#include <chrono>
 #include "input_controller.h"
 #include "renderer.h"
 #include "board.h"
@@ -12,7 +13,8 @@ private:
     
     static Game* _instance;
     std::unique_ptr<GameState> _state;
-
+    long _accum;
+    std::chrono::_V2::high_resolution_clock::time_point _lastTime;
 
     InputController _input;
     Renderer _renderer;
