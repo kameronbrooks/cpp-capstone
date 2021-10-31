@@ -6,13 +6,57 @@
 
 #IncludeRegexTransform: 
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.cpp
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
 cell.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
+globals.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
 globals.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/color.h
+iostream
+-
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.cpp
+game.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
+iostream
+-
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
+input_controller.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
+renderer.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
+board.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
+game_state.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
+globals.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
+piece_types.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_types.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.cpp
+game_state.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
+game.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
+string
+-
+vector
+-
+memory
+-
+board.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
+piece.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
 string
@@ -24,5 +68,55 @@ vector
 memory
 -
 thread
+-
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
+SDL2/SDL.h
+-
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
+cell.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
+piece_type.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
+globals.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
+piece_type.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
+string
+-
+sprite.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
+globals.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_types.h
+piece_pawn.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
+SDL2/SDL.h
+-
+SDL2/SDL_image.h
+-
+memory
+-
+sprite.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
+color.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/color.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
+SDL2/SDL.h
+-
+SDL2/SDL_image.h
+-
+string
+-
+mutex
 -
 

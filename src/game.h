@@ -5,6 +5,7 @@
 #include "board.h"
 #include "game_state.h"
 #include "globals.h"
+#include "piece_types.h"
 
 class Game: public InputControllerTarget  {
 private:
@@ -16,8 +17,10 @@ private:
     InputController _input;
     Renderer _renderer;
     bool _running;
+
+    Pawn _pawnType;
     
-    
+    void placePieces();
     
 public:
     Game();
@@ -25,7 +28,8 @@ public:
 
     static Game* getInstance();
 
-    void StartGame();
+    void loadGameData();
+    void startGame();
     GameState* getState();
 
     void render();

@@ -26,6 +26,7 @@ public:
     int getTimesMoved();
     void moveTo(Cell* cell);
 
+    void setCell(Cell* cell);
     Cell* getCell();
     PieceType* getPieceType();
     void setPieceType(PieceType* type);

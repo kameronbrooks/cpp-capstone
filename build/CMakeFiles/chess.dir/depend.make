@@ -25,7 +25,9 @@ CMakeFiles/chess.dir/src/game.cpp.o: ../src/game_state.h
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/globals.h
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/input_controller.h
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/piece.h
+CMakeFiles/chess.dir/src/game.cpp.o: ../src/piece_pawn.h
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/piece_type.h
+CMakeFiles/chess.dir/src/game.cpp.o: ../src/piece_types.h
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/sprite.h
 
@@ -38,7 +40,9 @@ CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/game_state.h
 CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/globals.h
 CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/input_controller.h
 CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/piece.h
+CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/piece_pawn.h
 CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/piece_type.h
+CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/piece_types.h
 CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/sprite.h
 
@@ -54,7 +58,9 @@ CMakeFiles/chess.dir/src/main.cpp.o: ../src/globals.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/input_controller.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/piece.h
+CMakeFiles/chess.dir/src/main.cpp.o: ../src/piece_pawn.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/piece_type.h
+CMakeFiles/chess.dir/src/main.cpp.o: ../src/piece_types.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/sprite.h
 
@@ -66,6 +72,14 @@ CMakeFiles/chess.dir/src/piece.cpp.o: ../src/piece.h
 CMakeFiles/chess.dir/src/piece.cpp.o: ../src/piece_type.h
 CMakeFiles/chess.dir/src/piece.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/piece.cpp.o: ../src/sprite.h
+
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/color.h
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/globals.h
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/piece_pawn.cpp
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/piece_pawn.h
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/piece_type.h
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/renderer.h
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/sprite.h
 
 CMakeFiles/chess.dir/src/piece_type.cpp.o: ../src/globals.h
 CMakeFiles/chess.dir/src/piece_type.cpp.o: ../src/piece_type.cpp

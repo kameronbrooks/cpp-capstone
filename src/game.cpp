@@ -10,10 +10,30 @@ Game::~Game() {
     
 }
 
+void Game::loadGameData() {
+    _pawnType.loadSprites(&_renderer);
+}
 
-void Game::StartGame() {
+void Game::placePieces() {
+    for(int i = 0; i < 8; ++i) {
+        _state->addPiece(&_pawnType, PieceTeam::White, i,1);
+    }
+    
+
+    for(int i = 0; i < 8; ++i) {
+        _state->addPiece(&_pawnType, PieceTeam::Black, i,6);
+    }
+}
+
+
+void Game::startGame() {
+    loadGameData();
+    
     _running = true;
     _state = std::make_unique<GameState>(this);
+
+    placePieces();
+
     while(_running) {
         _input.pollEvents();
         _renderer.clear();
@@ -39,4 +59,11 @@ void Game::onExitApplication() {
 
 void Game::render() {
     _state->getBoard().draw(&_renderer);
+
+    for(auto& piece: _state->getWhitePieces()) {
+        piece->draw(&_renderer);
+    }
+    for(auto& piece: _state->getBlackPieces()) {
+        piece->draw(&_renderer);
+    }
 }

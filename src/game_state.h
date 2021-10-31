@@ -27,6 +27,11 @@ public:
 
     Board& getBoard();
 
+    void addPiece(PieceType* pieceType, PieceTeam team, int x, int y);
+
+    std::vector<std::unique_ptr<Piece>>& getWhitePieces();
+    std::vector<std::unique_ptr<Piece>>& getBlackPieces();
+
     void movePiece(Piece* piece, Cell* cell);
     void movePiece(Piece* piece, int x, int y);
 

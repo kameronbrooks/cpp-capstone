@@ -7,6 +7,7 @@
 class Game;
 class Piece;
 class GameState;
+class Renderer;
 
 
 class PieceType {
@@ -15,9 +16,10 @@ protected:
     std::unique_ptr<Sprite> _blackSprite;
     std::string _name;
 public:
-
+    PieceType();
     std::string getName();
     virtual int getId()=0;
+    virtual void loadSprites(Renderer* renderer)=0;
 
     virtual void onTurnStart(GameState* gameState, Piece* piece);
     virtual void onTurnEnd(GameState* gameState, Piece* piece);

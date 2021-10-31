@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/chess.dir/src/input_controller.cpp.o"
   "CMakeFiles/chess.dir/src/main.cpp.o"
   "CMakeFiles/chess.dir/src/piece.cpp.o"
+  "CMakeFiles/chess.dir/src/piece_pawn.cpp.o"
   "CMakeFiles/chess.dir/src/piece_type.cpp.o"
   "CMakeFiles/chess.dir/src/renderer.cpp.o"
   "CMakeFiles/chess.dir/src/sprite.cpp.o"

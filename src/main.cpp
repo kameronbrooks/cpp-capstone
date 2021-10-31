@@ -14,7 +14,7 @@ int main() {
     //Sprite* sprite = renderer.LoadSprite("../img/king_black.png");
     Game game;
 
-    game.StartGame();
+    game.startGame();
     //renderer.clear();
     //renderer.drawSprite(sprite, 100,10, 100,100);
 

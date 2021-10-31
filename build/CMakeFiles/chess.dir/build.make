@@ -161,9 +161,22 @@ CMakeFiles/chess.dir/src/piece.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess.dir/src/piece.cpp.s"
 	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.cpp" -o CMakeFiles/chess.dir/src/piece.cpp.s
 
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: CMakeFiles/chess.dir/flags.make
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/piece_pawn.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/chess.dir/src/piece_pawn.cpp.o"
+	/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/piece_pawn.cpp.o -c "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.cpp"
+
+CMakeFiles/chess.dir/src/piece_pawn.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/chess.dir/src/piece_pawn.cpp.i"
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.cpp" > CMakeFiles/chess.dir/src/piece_pawn.cpp.i
+
+CMakeFiles/chess.dir/src/piece_pawn.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/chess.dir/src/piece_pawn.cpp.s"
+	/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.cpp" -o CMakeFiles/chess.dir/src/piece_pawn.cpp.s
+
 CMakeFiles/chess.dir/src/piece_type.cpp.o: CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/piece_type.cpp.o: ../src/piece_type.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/chess.dir/src/piece_type.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/chess.dir/src/piece_type.cpp.o"
 	/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/piece_type.cpp.o -c "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.cpp"
 
 CMakeFiles/chess.dir/src/piece_type.cpp.i: cmake_force
@@ -176,7 +189,7 @@ CMakeFiles/chess.dir/src/piece_type.cpp.s: cmake_force
 
 CMakeFiles/chess.dir/src/renderer.cpp.o: CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/renderer.cpp.o: ../src/renderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/chess.dir/src/renderer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/chess.dir/src/renderer.cpp.o"
 	/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/renderer.cpp.o -c "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.cpp"
 
 CMakeFiles/chess.dir/src/renderer.cpp.i: cmake_force
@@ -189,7 +202,7 @@ CMakeFiles/chess.dir/src/renderer.cpp.s: cmake_force
 
 CMakeFiles/chess.dir/src/sprite.cpp.o: CMakeFiles/chess.dir/flags.make
 CMakeFiles/chess.dir/src/sprite.cpp.o: ../src/sprite.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/chess.dir/src/sprite.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/chess.dir/src/sprite.cpp.o"
 	/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/chess.dir/src/sprite.cpp.o -c "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.cpp"
 
 CMakeFiles/chess.dir/src/sprite.cpp.i: cmake_force
@@ -210,6 +223,7 @@ chess_OBJECTS = \
 "CMakeFiles/chess.dir/src/input_controller.cpp.o" \
 "CMakeFiles/chess.dir/src/main.cpp.o" \
 "CMakeFiles/chess.dir/src/piece.cpp.o" \
+"CMakeFiles/chess.dir/src/piece_pawn.cpp.o" \
 "CMakeFiles/chess.dir/src/piece_type.cpp.o" \
 "CMakeFiles/chess.dir/src/renderer.cpp.o" \
 "CMakeFiles/chess.dir/src/sprite.cpp.o"
@@ -225,13 +239,14 @@ chess: CMakeFiles/chess.dir/src/game_state.cpp.o
 chess: CMakeFiles/chess.dir/src/input_controller.cpp.o
 chess: CMakeFiles/chess.dir/src/main.cpp.o
 chess: CMakeFiles/chess.dir/src/piece.cpp.o
+chess: CMakeFiles/chess.dir/src/piece_pawn.cpp.o
 chess: CMakeFiles/chess.dir/src/piece_type.cpp.o
 chess: CMakeFiles/chess.dir/src/renderer.cpp.o
 chess: CMakeFiles/chess.dir/src/sprite.cpp.o
 chess: CMakeFiles/chess.dir/build.make
 chess: /usr/lib/x86_64-linux-gnu/libSDL2_image.so
 chess: CMakeFiles/chess.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable chess"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable chess"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/chess.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

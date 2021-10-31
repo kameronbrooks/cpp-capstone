@@ -339,6 +339,33 @@ src/piece.cpp.s:
 	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece.cpp.s
 .PHONY : src/piece.cpp.s
 
+src/piece_pawn.o: src/piece_pawn.cpp.o
+
+.PHONY : src/piece_pawn.o
+
+# target to build an object file
+src/piece_pawn.cpp.o:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece_pawn.cpp.o
+.PHONY : src/piece_pawn.cpp.o
+
+src/piece_pawn.i: src/piece_pawn.cpp.i
+
+.PHONY : src/piece_pawn.i
+
+# target to preprocess a source file
+src/piece_pawn.cpp.i:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece_pawn.cpp.i
+.PHONY : src/piece_pawn.cpp.i
+
+src/piece_pawn.s: src/piece_pawn.cpp.s
+
+.PHONY : src/piece_pawn.s
+
+# target to generate assembly for a file
+src/piece_pawn.cpp.s:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece_pawn.cpp.s
+.PHONY : src/piece_pawn.cpp.s
+
 src/piece_type.o: src/piece_type.cpp.o
 
 .PHONY : src/piece_type.o
@@ -453,6 +480,9 @@ help:
 	@echo "... src/piece.o"
 	@echo "... src/piece.i"
 	@echo "... src/piece.s"
+	@echo "... src/piece_pawn.o"
+	@echo "... src/piece_pawn.i"
+	@echo "... src/piece_pawn.s"
 	@echo "... src/piece_type.o"
 	@echo "... src/piece_type.i"
 	@echo "... src/piece_type.s"

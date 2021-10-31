@@ -1,5 +1,9 @@
 #include "piece_type.h"
 
+PieceType::PieceType() {
+
+}
+
 std::string PieceType::getName() {
     return _name;
 }

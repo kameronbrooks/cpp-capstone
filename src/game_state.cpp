@@ -4,6 +4,7 @@
 GameState::GameState(Game*game) : _board() {
     std::cout << "GameState Contructor" << std::endl;
     _game = game;
+    _currentTurn = 0;
 }
 Game* GameState::getGame() {
     return _game;
@@ -20,6 +21,30 @@ int GameState::incrementTurn() {
 
 Board& GameState::getBoard() {
     return _board;
+}
+
+void GameState::addPiece(PieceType* pieceType, PieceTeam team, int x, int y) {
+    Piece* newPiece = new Piece(pieceType, team);
+    Cell* cell = _board.getCell(x,y);
+
+    newPiece->setCell(cell);
+
+    if(team == PieceTeam::Black) {      
+        _blackPieces.push_back(std::unique_ptr<Piece>(newPiece));
+        std::cout << " Team:  " << "Black" << " Count " << _blackPieces.size() << std::endl;
+    }
+    else {
+        _whitePieces.push_back(std::unique_ptr<Piece>(newPiece));
+        std::cout << " Team:  " << "White" << " Count " << _whitePieces.size() << std::endl;
+    }
+    
+}
+
+std::vector<std::unique_ptr<Piece>>& GameState::getWhitePieces() {
+    return _whitePieces;
+}
+std::vector<std::unique_ptr<Piece>>& GameState::getBlackPieces() {
+    return _blackPieces;
 }
 
 void GameState::movePiece(Piece* piece, Cell* cell) {
