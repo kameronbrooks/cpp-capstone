@@ -28,14 +28,13 @@ void GameState::addPiece(PieceType* pieceType, PieceTeam team, int x, int y) {
     Cell* cell = _board.getCell(x,y);
 
     newPiece->setCell(cell);
+    cell->setPiece(newPiece);
 
     if(team == PieceTeam::Black) {      
         _blackPieces.push_back(std::unique_ptr<Piece>(newPiece));
-        std::cout << " Team:  " << "Black" << " Count " << _blackPieces.size() << std::endl;
     }
     else {
         _whitePieces.push_back(std::unique_ptr<Piece>(newPiece));
-        std::cout << " Team:  " << "White" << " Count " << _whitePieces.size() << std::endl;
     }
     
 }

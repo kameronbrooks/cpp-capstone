@@ -5,6 +5,10 @@ Game::Game() : _renderer(800, 800), _input() {
     //Game::_instance = this;
     
     _input.setTarget(this);
+    _selectedCell = nullptr;
+    _hoverCell = nullptr;
+
+    _uiColor = Color(100,255,100,100);
 }
 Game::~Game() {
     
@@ -12,17 +16,32 @@ Game::~Game() {
 
 void Game::loadGameData() {
     _pawnType.loadSprites(&_renderer);
+    _knightType.loadSprites(&_renderer);
+    _bishopType.loadSprites(&_renderer);
+    _rookType.loadSprites(&_renderer);
 }
 
 void Game::placePieces() {
     for(int i = 0; i < 8; ++i) {
         _state->addPiece(&_pawnType, PieceTeam::White, i,1);
     }
+    _state->addPiece(&_knightType, PieceTeam::White, 1,0);
+    _state->addPiece(&_knightType, PieceTeam::White, 6,0);
+    _state->addPiece(&_bishopType, PieceTeam::White, 2,0);
+    _state->addPiece(&_bishopType, PieceTeam::White, 5,0);
+    _state->addPiece(&_rookType, PieceTeam::White, 0,0);
+    _state->addPiece(&_rookType, PieceTeam::White, 7,0);
     
 
     for(int i = 0; i < 8; ++i) {
         _state->addPiece(&_pawnType, PieceTeam::Black, i,6);
     }
+    _state->addPiece(&_knightType, PieceTeam::Black, 1,7);
+    _state->addPiece(&_knightType, PieceTeam::Black, 6,7);
+    _state->addPiece(&_bishopType, PieceTeam::Black, 2,7);
+    _state->addPiece(&_bishopType, PieceTeam::Black, 5,7);
+    _state->addPiece(&_rookType, PieceTeam::Black, 0,7);
+    _state->addPiece(&_rookType, PieceTeam::Black, 7,7);
 }
 
 
@@ -47,10 +66,13 @@ void Game::onMouseDown(int x, int y) {
 
 }
 void Game::onMouseUp(int x, int y) {
-    std::cout << "Mouse Down: " << x << " " << y << std::endl; 
+    if(_hoverCell != nullptr && _hoverCell->isOccupied() && _hoverCell->getPiece()->getPieceTeam() == PieceTeam::White) {
+        _selectedCell = _hoverCell;
+    }
 }
 void Game::onMouseMove(int x, int y) {
-
+    int cellSize = _renderer.windowWidth() / BOARD_WIDTH;
+    _hoverCell = _state->getBoard().getCell(x/cellSize, (_renderer.windowHeight() - y) / cellSize);
 }
 void Game::onExitApplication() {
     std::cout << "Closing application" << std::endl;
@@ -60,10 +82,22 @@ void Game::onExitApplication() {
 void Game::render() {
     _state->getBoard().draw(&_renderer);
 
+    int cellSize = _renderer.windowWidth() / BOARD_WIDTH;
+
     for(auto& piece: _state->getWhitePieces()) {
         piece->draw(&_renderer);
     }
     for(auto& piece: _state->getBlackPieces()) {
         piece->draw(&_renderer);
     }
+
+    if(_hoverCell != nullptr) {
+        _renderer.drawRect(_hoverCell->getX()*cellSize, _hoverCell->getY()*cellSize, cellSize, cellSize, _uiColor);
+    }
+
+    if(_selectedCell != nullptr) {
+        _renderer.drawRect(_selectedCell->getX()*cellSize, _selectedCell->getY()*cellSize, cellSize, cellSize, _uiColor);
+    }
+
+    
 }

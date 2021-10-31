@@ -40,12 +40,6 @@ globals.h
 piece_types.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_types.h
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.cpp
-game_state.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
-game.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
-
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
 string
 -
@@ -82,7 +76,19 @@ piece_type.h
 globals.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
 
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_bishop.h
+piece_type.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_knight.h
+piece_type.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
+
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
+piece_type.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_rook.h
 piece_type.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
 
@@ -97,6 +103,12 @@ globals.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_types.h
 piece_pawn.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
+piece_knight.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_knight.h
+piece_bishop.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_bishop.h
+piece_rook.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_rook.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
 SDL2/SDL.h

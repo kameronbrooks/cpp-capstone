@@ -17,7 +17,7 @@ Renderer::Renderer(int windowWidth, int windowHeight) {
     }
 
     _sdlRenderer = SDL_CreateRenderer( _window, -1, SDL_RENDERER_ACCELERATED );
-
+    SDL_SetRenderDrawBlendMode(_sdlRenderer, SDL_BLENDMODE_BLEND);
     SDL_SetRenderDrawColor( _sdlRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
 
     _windowWidth = windowWidth;

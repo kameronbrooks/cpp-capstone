@@ -19,8 +19,15 @@ private:
     bool _running;
 
     Pawn _pawnType;
+    Knight _knightType;
+    Bishop _bishopType;
+    Rook _rookType;
     
     void placePieces();
+
+    Cell* _hoverCell;
+    Cell* _selectedCell;
+    Color _uiColor;
     
 public:
     Game();
