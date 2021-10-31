@@ -7,6 +7,7 @@
 #include "game_state.h"
 #include "globals.h"
 #include "piece_types.h"
+#include "relation_matrix.h"
 
 class Game: public InputControllerTarget  {
 private:
@@ -16,6 +17,7 @@ private:
     long _accum;
     std::chrono::_V2::high_resolution_clock::time_point _lastTime;
 
+    
     InputController _input;
     Renderer _renderer;
     bool _running;
@@ -30,6 +32,7 @@ private:
     Cell* _hoverCell;
     Cell* _selectedCell;
     Color _uiColor;
+    RelationMatrix<Piece> _moveMatrix;
     
 public:
     Game();

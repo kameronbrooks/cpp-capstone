@@ -31,6 +31,7 @@ CMakeFiles/chess.dir/src/game.cpp.o: ../src/piece_pawn.h
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/piece_rook.h
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/piece_type.h
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/piece_types.h
+CMakeFiles/chess.dir/src/game.cpp.o: ../src/relation_matrix.h
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/game.cpp.o: ../src/sprite.h
 
@@ -49,6 +50,7 @@ CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/piece_pawn.h
 CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/piece_rook.h
 CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/piece_type.h
 CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/piece_types.h
+CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/relation_matrix.h
 CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/game_state.cpp.o: ../src/sprite.h
 
@@ -70,6 +72,7 @@ CMakeFiles/chess.dir/src/main.cpp.o: ../src/piece_pawn.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/piece_rook.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/piece_type.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/piece_types.h
+CMakeFiles/chess.dir/src/main.cpp.o: ../src/relation_matrix.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/main.cpp.o: ../src/sprite.h
 
