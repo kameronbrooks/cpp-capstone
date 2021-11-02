@@ -8,7 +8,7 @@ Game::Game() : _renderer(800, 800), _input() {
     _selectedCell = nullptr;
     _hoverCell = nullptr;
 
-    _uiColor = Color(100,255,100,100);
+    //_uiColor = Color(100,255,100,100);
 }
 Game::~Game() {
     
@@ -66,9 +66,7 @@ void Game::startGame() {
             _accum -= TARGET_FRAME_RATE_MILIS;
         }
         _lastTime = now;
-        
     }
-    
 }
 
 void Game::onMouseDown(int x, int y) {
@@ -92,18 +90,18 @@ void Game::render() {
     _state->getBoard().draw(&_renderer);
 
     int cellSize = _renderer.windowWidth() / BOARD_WIDTH;
-
+    // draw pieces
     for(auto& piece: _state->getWhitePieces()) {
         piece->draw(&_renderer);
     }
     for(auto& piece: _state->getBlackPieces()) {
         piece->draw(&_renderer);
     }
-
+    // draw current cell
     if(_hoverCell != nullptr) {
         _renderer.drawRect(_hoverCell->getX()*cellSize, _hoverCell->getY()*cellSize, cellSize, cellSize, _uiColor);
     }
-
+    // draw selected cell
     if(_selectedCell != nullptr) {
         _renderer.drawRect(_selectedCell->getX()*cellSize, _selectedCell->getY()*cellSize, cellSize, cellSize, _uiColor);
     }

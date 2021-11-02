@@ -31,8 +31,8 @@ private:
 
     Cell* _hoverCell;
     Cell* _selectedCell;
-    Color _uiColor;
-    
+    Color _uiColor{100,255,100,100};
+    Color _uiColor2{200,255,255,0};
     
 public:
     Game();
