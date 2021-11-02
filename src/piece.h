@@ -35,6 +35,8 @@ public:
 
     void draw(Renderer* renderer);
 
+    void calculate(GameState* gameState);
+
     
 };
 

@@ -85,35 +85,55 @@ CMakeFiles/chess.dir/src/piece.cpp.o: ../src/piece_type.h
 CMakeFiles/chess.dir/src/piece.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/piece.cpp.o: ../src/sprite.h
 
+CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/board.h
+CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/cell.h
 CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/color.h
+CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/game_state.h
 CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/globals.h
+CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/piece.h
 CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/piece_bishop.cpp
 CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/piece_bishop.h
 CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/piece_type.h
+CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/relation_matrix.h
 CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/piece_bishop.cpp.o: ../src/sprite.h
 
+CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/board.h
+CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/cell.h
 CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/color.h
+CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/game_state.h
 CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/globals.h
+CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/piece.h
 CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/piece_knight.cpp
 CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/piece_knight.h
 CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/piece_type.h
+CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/relation_matrix.h
 CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/piece_knight.cpp.o: ../src/sprite.h
 
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/board.h
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/cell.h
 CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/color.h
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/game_state.h
 CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/globals.h
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/piece.h
 CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/piece_pawn.cpp
 CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/piece_pawn.h
 CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/piece_type.h
+CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/relation_matrix.h
 CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/piece_pawn.cpp.o: ../src/sprite.h
 
+CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/board.h
+CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/cell.h
 CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/color.h
+CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/game_state.h
 CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/globals.h
+CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/piece.h
 CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/piece_rook.cpp
 CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/piece_rook.h
 CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/piece_type.h
+CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/relation_matrix.h
 CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/renderer.h
 CMakeFiles/chess.dir/src/piece_rook.cpp.o: ../src/sprite.h
 

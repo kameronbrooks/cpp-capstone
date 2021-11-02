@@ -13,6 +13,7 @@ private:
 public:
     Board();
     Cell* getCell(int x, int y);
+    Cell* getNeighbor(Cell* current, int xOffset, int yOffset);
     void draw(Renderer* renderer);
 
 

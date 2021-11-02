@@ -16,6 +16,8 @@ int GameState::currentPlayerIndex() {
     return _currentTurn % 2;
 }
 int GameState::incrementTurn() {
+    clearActions();
+    calculateActions();
     return ++_currentTurn;
 }
 
@@ -62,4 +64,23 @@ void GameState::removePiece(Piece* piece) {
 }
 void GameState::removePiece(int x, int y) {
 
+}
+
+void GameState::clearActions() {
+    _moveMatrix.clear();
+}
+void GameState::addAction(Piece* piece, int x, int y) {
+    _moveMatrix.add(piece, x, y);
+}
+void GameState::addAction(Piece* piece, Cell* cell) {
+    _moveMatrix.add(piece, cell->getX(), cell->getY());
+}
+
+void GameState::calculateActions() {
+    for(auto& piece:_whitePieces) {
+        piece->calculate(this);
+    }
+    for(auto& piece:_blackPieces) {
+        piece->calculate(this);
+    }
 }

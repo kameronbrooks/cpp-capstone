@@ -15,6 +15,16 @@ Cell* Board::getCell(int x, int y) {
 
     return &cells[x][y];
 }
+
+Cell* Board::getNeighbor(Cell* current, int xOffset, int yOffset) {
+    int x = current->getX()+xOffset;
+    int y = current->getY()+yOffset;
+    if(x < 0 || x >= BOARD_WIDTH || y < 0 || y >= BOARD_HEIGHT) 
+        return nullptr;
+
+    return &cells[x][y];
+}
+
 void Board::draw(Renderer* renderer) {
     int tileSize = renderer->windowWidth() / BOARD_WIDTH;
     Color whiteColor(220,220,200,255);

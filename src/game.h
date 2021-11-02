@@ -32,7 +32,7 @@ private:
     Cell* _hoverCell;
     Cell* _selectedCell;
     Color _uiColor;
-    RelationMatrix<Piece> _moveMatrix;
+    
     
 public:
     Game();

@@ -110,3 +110,7 @@ void Piece::draw(Renderer* renderer) {
     
 
 }
+
+void Piece::calculate(GameState* gameState) {
+    _pieceType->calculateMoves(this, gameState);
+}
