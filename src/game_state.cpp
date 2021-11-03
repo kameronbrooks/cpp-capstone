@@ -84,3 +84,7 @@ void GameState::calculateActions() {
         piece->calculate(this);
     }
 }
+
+RelationMatrix<Piece>* GameState::getActionMatrix() {
+    return &_moveMatrix;
+}

@@ -32,7 +32,8 @@ private:
     Cell* _hoverCell;
     Cell* _selectedCell;
     Color _uiColor{100,255,100,100};
-    Color _uiColor2{200,255,255,0};
+    Color _uiColor2{100,255,255,0};
+    std::unique_ptr<Sprite> _moveIcon;
     
 public:
     Game();
@@ -43,13 +44,15 @@ public:
     void loadGameData();
     void startGame();
     GameState* getState();
+    bool isPlayerTurn();
 
     void render();
+    void drawMoves();
 
     void onExitApplication();
     void onMouseDown(int x, int y);
     void onMouseUp(int x, int y);
-    void onMouseMove(int x, int y);
+    void setMousePos(int x, int y);
     
 };
 

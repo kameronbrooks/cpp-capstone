@@ -75,6 +75,10 @@ Renderer& Renderer::operator=(Renderer&& other) {
     return *this;
 }
 
+void Renderer::setRenderingColor(Color& color) {
+    SDL_SetRenderDrawColor(_sdlRenderer, color[0], color[1], color[2], color[3]);
+}
+
 void Renderer::drawSprite(Sprite* sprite, int x, int y, int w, int h) {
     SDL_Rect rect;
     rect.x = x;
@@ -83,6 +87,17 @@ void Renderer::drawSprite(Sprite* sprite, int x, int y, int w, int h) {
     rect.h = h;
     SDL_RenderCopy(_sdlRenderer,sprite->_handle, NULL, &rect);
 }
+
+void Renderer::drawSprite(Sprite* sprite, int x, int y, int w, int h, Color& color) {
+    SDL_SetTextureColorMod(sprite->_handle, color[0], color[1], color[2]);
+    SDL_Rect rect;
+    rect.x = x;
+    rect.y = _windowHeight - h - y;
+    rect.w = w;
+    rect.h = h;
+    SDL_RenderCopy(_sdlRenderer,sprite->_handle, NULL, &rect);
+}
+
 
 void Renderer::drawRect(int x, int y, int w, int h, Color& color) {
     SDL_Rect rect;

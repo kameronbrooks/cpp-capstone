@@ -1,5 +1,7 @@
 #include "game.h"
 #include <iostream>
+#include "globals.h"
+
 
 Game::Game() : _renderer(800, 800), _input() {
     //Game::_instance = this;
@@ -7,21 +9,30 @@ Game::Game() : _renderer(800, 800), _input() {
     _input.setTarget(this);
     _selectedCell = nullptr;
     _hoverCell = nullptr;
-
-    //_uiColor = Color(100,255,100,100);
+ 
 }
 Game::~Game() {
     
 }
 
 void Game::loadGameData() {
-    _pawnType.loadSprites(&_renderer);
-    _knightType.loadSprites(&_renderer);
-    _bishopType.loadSprites(&_renderer);
-    _rookType.loadSprites(&_renderer);
+    std::cout << "Loading Game Data" << std::endl;
+    try {
+        _pawnType.loadSprites(&_renderer);
+        _knightType.loadSprites(&_renderer);
+        _bishopType.loadSprites(&_renderer);
+        _rookType.loadSprites(&_renderer);
+        _moveIcon = std::unique_ptr<Sprite>(_renderer.LoadSprite("../img/chess_icon_0.png"));
+    }
+    catch(...) {
+         throw "Failed to load game data";
+    }
+    
+    std::cout << "Game Data Loaded" << std::endl;
 }
 
 void Game::placePieces() {
+    std::cout << "Placing Pieces" << std::endl;
     for(int i = 0; i < 8; ++i) {
         _state->addPiece(&_pawnType, PieceTeam::White, i,1);
     }
@@ -53,37 +64,68 @@ void Game::startGame() {
     _accum = 0;
     _lastTime = std::chrono::high_resolution_clock::now();
     placePieces();
-
+    _state->calculateActions();
     while(_running) {
         auto now = std::chrono::high_resolution_clock::now();
-        _accum += std::chrono::duration_cast<std::chrono::milliseconds>(now-_lastTime).count();
-        _input.pollEvents();
-        
-        if(_accum >= TARGET_FRAME_RATE_MILIS) {
+         
+        if(std::chrono::duration_cast<std::chrono::milliseconds>(now -_lastTime).count() >= TARGET_FRAME_RATE_MILIS) {
+            //std::cout << _accum << std::endl;
+            _input.update();
+            _input.pollEvents();
             _renderer.clear();
             render();
             _renderer.updateScreen();
-            _accum -= TARGET_FRAME_RATE_MILIS;
+            _lastTime = now;
         }
-        _lastTime = now;
+        
     }
+}
+
+bool Game::isPlayerTurn() {
+    return _state->currentPlayerIndex() == 0;
 }
 
 void Game::onMouseDown(int x, int y) {
 
 }
 void Game::onMouseUp(int x, int y) {
+    if(_state->currentPlayerIndex() != 0) return;
+
     if(_hoverCell != nullptr && _hoverCell->isOccupied() && _hoverCell->getPiece()->getPieceTeam() == PieceTeam::White) {
         _selectedCell = _hoverCell;
     }
+    else if(_selectedCell != nullptr && _selectedCell->isOccupied()) {
+        if(_hoverCell->isOccupied()) {
+            _state->removePiece(_hoverCell->getPiece());
+        }
+        _state->movePiece(_selectedCell->getPiece(), _hoverCell);
+        _state->incrementTurn();
+        _selectedCell = nullptr;
+    }
 }
-void Game::onMouseMove(int x, int y) {
+void Game::setMousePos(int x, int y) {
     int cellSize = _renderer.windowWidth() / BOARD_WIDTH;
     _hoverCell = _state->getBoard().getCell(x/cellSize, (_renderer.windowHeight() - y) / cellSize);
 }
 void Game::onExitApplication() {
     std::cout << "Closing application" << std::endl;
     _running = false;
+}
+
+void Game::drawMoves() {
+    if(_selectedCell != nullptr && _selectedCell->isOccupied()) {
+        int tileSize = _renderer.windowWidth() / BOARD_WIDTH;
+
+        for(int y = 0; y < BOARD_HEIGHT; ++y) {
+            for(int x = 0; x < BOARD_WIDTH; ++x) {
+                if(_state->getActionMatrix()->contains(_selectedCell->getPiece(), x, y)) {
+                    _renderer.drawSprite(_moveIcon.get(), x * tileSize, y * tileSize, tileSize, tileSize, _uiColor2);
+                }
+
+            }
+        }
+    }
+    
 }
 
 void Game::render() {
@@ -105,6 +147,11 @@ void Game::render() {
     if(_selectedCell != nullptr) {
         _renderer.drawRect(_selectedCell->getX()*cellSize, _selectedCell->getY()*cellSize, cellSize, cellSize, _uiColor);
     }
-
+    
+    // draw moves
+    if(isPlayerTurn() && _selectedCell != nullptr) {
+        drawMoves();
+    }
+    
     
 }

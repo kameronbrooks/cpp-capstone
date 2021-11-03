@@ -45,6 +45,8 @@ public:
     void addAction(Piece* piece, int x, int y);
     void addAction(Piece* piece, Cell* cell);
 
+    RelationMatrix<Piece>* getActionMatrix();
+
 
 };
 

@@ -23,7 +23,9 @@ public:
 
     Sprite* LoadSprite(std::string&& path);
 
+    void setRenderingColor(Color& color);
     void drawSprite(Sprite* sprite, int x, int y, int w, int h);
+    void drawSprite(Sprite* sprite, int x, int y, int w, int h, Color& color);
     void drawRect(int x, int y, int w, int h, Color& color);
 
     int windowWidth();

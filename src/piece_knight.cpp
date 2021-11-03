@@ -26,31 +26,67 @@ void Knight::calculateMoves(Piece* piece, GameState* gameState ) {
     }
     cell = gameState->getBoard().getNeighbor(piece->getCell(), -1, 2);
     if(cell != nullptr) {
-        gameState->addAction(piece, cell);
+        if(cell->isOccupied() && cell->getPiece()->getPieceTeam() == piece->getPieceTeam()) {
+
+        }
+        else {
+            gameState->addAction(piece, cell);
+        }
+        
     }
     cell = gameState->getBoard().getNeighbor(piece->getCell(), 1, -2);
     if(cell != nullptr) {
-        gameState->addAction(piece, cell);
+        if(cell->isOccupied() && cell->getPiece()->getPieceTeam() == piece->getPieceTeam()) {
+
+        }
+        else {
+            gameState->addAction(piece, cell);
+        }
     }
     cell = gameState->getBoard().getNeighbor(piece->getCell(), -1, -2);
     if(cell != nullptr) {
-        gameState->addAction(piece, cell);
+        if(cell->isOccupied() && cell->getPiece()->getPieceTeam() == piece->getPieceTeam()) {
+
+        }
+        else {
+            gameState->addAction(piece, cell);
+        }
     }
     cell = gameState->getBoard().getNeighbor(piece->getCell(), 2, 1);
     if(cell != nullptr) {
-        gameState->addAction(piece, cell);
+        if(cell->isOccupied() && cell->getPiece()->getPieceTeam() == piece->getPieceTeam()) {
+
+        }
+        else {
+            gameState->addAction(piece, cell);
+        }
     }
     cell = gameState->getBoard().getNeighbor(piece->getCell(), -2, 1);
     if(cell != nullptr) {
-        gameState->addAction(piece, cell);
+        if(cell->isOccupied() && cell->getPiece()->getPieceTeam() == piece->getPieceTeam()) {
+
+        }
+        else {
+            gameState->addAction(piece, cell);
+        }
     }
     cell = gameState->getBoard().getNeighbor(piece->getCell(), 2, -1);
     if(cell != nullptr) {
-        gameState->addAction(piece, cell);
+        if(cell->isOccupied() && cell->getPiece()->getPieceTeam() == piece->getPieceTeam()) {
+
+        }
+        else {
+            gameState->addAction(piece, cell);
+        }
     }
     cell = gameState->getBoard().getNeighbor(piece->getCell(), -2, -1);
     if(cell != nullptr) {
-        gameState->addAction(piece, cell);
+        if(cell->isOccupied() && cell->getPiece()->getPieceTeam() == piece->getPieceTeam()) {
+
+        }
+        else {
+            gameState->addAction(piece, cell);
+        }
     }
 
 }
