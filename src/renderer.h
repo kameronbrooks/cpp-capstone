@@ -5,6 +5,8 @@
 #include <memory>
 #include "sprite.h"
 #include "color.h"
+#include <thread>
+#include <future>
 
 class Renderer {
 private:
@@ -12,6 +14,7 @@ private:
     SDL_Renderer* _sdlRenderer;
     int _windowWidth;
     int _windowHeight;
+    std::mutex _sdlMutex;
 
 public:
     Renderer(int windowWidth, int windowHeight);
@@ -28,8 +31,8 @@ public:
     void drawSprite(Sprite* sprite, int x, int y, int w, int h, Color& color);
     void drawRect(int x, int y, int w, int h, Color& color);
 
-    int windowWidth();
-    int windowHeight();
+    int windowWidth() const;
+    int windowHeight() const;
 
     void clear();
     void updateScreen();

@@ -25,6 +25,8 @@ game.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
 iostream
 -
+exception
+-
 globals.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
 
@@ -83,6 +85,8 @@ piece_type.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
 globals.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
+future
+-
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_bishop.h
 piece_type.h
@@ -143,6 +147,10 @@ sprite.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
 color.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/color.h
+thread
+-
+future
+-
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
 SDL2/SDL.h

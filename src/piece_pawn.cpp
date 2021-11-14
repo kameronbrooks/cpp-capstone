@@ -4,12 +4,18 @@
 #include "cell.h"
 #include "game_state.h"
 
+
 int Pawn::getId() {
     return 1;
 }
 void Pawn::loadSprites(Renderer* renderer) {
-    _blackSprite = std::unique_ptr<Sprite>(renderer->LoadSprite("../img/pawn_black.png"));
-    _whiteSprite = std::unique_ptr<Sprite>(renderer->LoadSprite("../img/pawn_white.png"));
+    auto func = [renderer](std::string&& path){ return renderer->LoadSprite(std::move(path));};
+
+    std::future<Sprite*> blk_future = std::async(std::launch::async, func, "../img/pawn_black.png");
+    std::future<Sprite*> white_future = std::async(std::launch::async, func, "../img/pawn_white.png");
+
+    _blackSprite = std::unique_ptr<Sprite>(blk_future.get());
+    _whiteSprite = std::unique_ptr<Sprite>(white_future.get());
 }
 
 void Pawn::onTurnStart(GameState* gameState, Piece* piece) {

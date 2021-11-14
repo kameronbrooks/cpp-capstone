@@ -1,4 +1,7 @@
 #include "renderer.h"
+#include <mutex>
+#include <thread>
+#include <future>
 
 
 
@@ -28,24 +31,29 @@ Renderer::Renderer(int windowWidth, int windowHeight) {
 }
 
 void Renderer::clear() {
+    std::lock_guard<std::mutex> lock(_sdlMutex);
     SDL_SetRenderDrawColor( _sdlRenderer, 0, 0, 0, 0 );
     SDL_RenderClear(_sdlRenderer);
 }
 void Renderer::updateScreen() {
+    std::lock_guard<std::mutex> lock(_sdlMutex);
     SDL_RenderPresent(_sdlRenderer);
 }
 
 Sprite* Renderer::LoadSprite(std::string&& path) {
+    std::unique_lock<std::mutex> lock(_sdlMutex);
     SDL_Surface* temp = IMG_Load(path.c_str());
+    int w = temp->w, h = temp->h;
     if (temp == nullptr) {
         throw "Failed to load image file: " + path;
     }
     SDL_Texture* tex = SDL_CreateTextureFromSurface( _sdlRenderer , temp );
-    
-    Sprite* output = new Sprite(tex, temp->w, temp->h);
-
     SDL_FreeSurface(temp);
+    lock.unlock();
 
+    Sprite* output = new Sprite(tex, w, h);
+
+    
     return output;
 }
 
@@ -76,6 +84,7 @@ Renderer& Renderer::operator=(Renderer&& other) {
 }
 
 void Renderer::setRenderingColor(Color& color) {
+    std::unique_lock<std::mutex> lock(_sdlMutex);
     SDL_SetRenderDrawColor(_sdlRenderer, color[0], color[1], color[2], color[3]);
 }
 
@@ -85,16 +94,19 @@ void Renderer::drawSprite(Sprite* sprite, int x, int y, int w, int h) {
     rect.y = _windowHeight - h - y;
     rect.w = w;
     rect.h = h;
+    std::unique_lock<std::mutex> lock(_sdlMutex);
     SDL_RenderCopy(_sdlRenderer,sprite->_handle, NULL, &rect);
 }
 
 void Renderer::drawSprite(Sprite* sprite, int x, int y, int w, int h, Color& color) {
-    SDL_SetTextureColorMod(sprite->_handle, color[0], color[1], color[2]);
+    
     SDL_Rect rect;
     rect.x = x;
     rect.y = _windowHeight - h - y;
     rect.w = w;
     rect.h = h;
+    std::unique_lock<std::mutex> lock(_sdlMutex);
+    SDL_SetTextureColorMod(sprite->_handle, color[0], color[1], color[2]);
     SDL_RenderCopy(_sdlRenderer,sprite->_handle, NULL, &rect);
 }
 
@@ -105,14 +117,15 @@ void Renderer::drawRect(int x, int y, int w, int h, Color& color) {
     rect.y = _windowHeight - h - y;
     rect.w = w;
     rect.h = h;
+    std::unique_lock<std::mutex> lock(_sdlMutex);
     SDL_SetRenderDrawColor(_sdlRenderer, color[0], color[1], color[2], color[3]);
     SDL_RenderFillRect(_sdlRenderer, &rect);
 }
 
-int Renderer::windowWidth() {
+int Renderer::windowWidth() const {
     return _windowWidth;
 }
-int Renderer::windowHeight() {
+int Renderer::windowHeight() const {
     return _windowHeight;
 }
 

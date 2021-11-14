@@ -1,5 +1,6 @@
 #include "game.h"
 #include <iostream>
+#include <exception>
 #include "globals.h"
 
 
@@ -17,12 +18,38 @@ Game::~Game() {
 
 void Game::loadGameData() {
     std::cout << "Loading Game Data" << std::endl;
+    std::exception_ptr except = nullptr;
+    auto func_load_sprite = [this](std::string&& path){ 
+        return _renderer.LoadSprite(std::move(path));
+    };
+    auto func_load_piece_sprites = [this, &except](PieceType* piece) {
+        try {
+            piece->loadSprites(&_renderer);
+        }
+        catch(...) {
+            except = std::current_exception();
+        }
+    };
+    
     try {
-        _pawnType.loadSprites(&_renderer);
-        _knightType.loadSprites(&_renderer);
-        _bishopType.loadSprites(&_renderer);
-        _rookType.loadSprites(&_renderer);
-        _moveIcon = std::unique_ptr<Sprite>(_renderer.LoadSprite("../img/chess_icon_0.png"));
+        // Start all threads
+        std::thread pawn_thread(func_load_piece_sprites, &_pawnType);
+        std::thread knight_thread(func_load_piece_sprites, &_knightType);
+        std::thread bishop_thread(func_load_piece_sprites, &_bishopType);
+        std::thread rook_thread(func_load_piece_sprites, &_rookType);
+        std::future<Sprite*> move_icon_sprite_ftr = std::async(std::launch::async, func_load_sprite, "../img/chess_icon_0.png");
+
+        // Join all threads
+        pawn_thread.join();
+        knight_thread.join();
+        bishop_thread.join();
+        rook_thread.join();
+        _moveIcon = std::unique_ptr<Sprite>(move_icon_sprite_ftr.get());
+
+        // Handle exceptions in all threads
+        if(except != nullptr) {
+            std::rethrow_exception(except);
+        }
     }
     catch(...) {
          throw "Failed to load game data";
@@ -43,7 +70,6 @@ void Game::placePieces() {
     _state->addPiece(&_rookType, PieceTeam::White, 0,0);
     _state->addPiece(&_rookType, PieceTeam::White, 7,0);
     
-
     for(int i = 0; i < 8; ++i) {
         _state->addPiece(&_pawnType, PieceTeam::Black, i,6);
     }
@@ -69,7 +95,6 @@ void Game::startGame() {
         auto now = std::chrono::high_resolution_clock::now();
          
         if(std::chrono::duration_cast<std::chrono::milliseconds>(now -_lastTime).count() >= TARGET_FRAME_RATE_MILIS) {
-            //std::cout << _accum << std::endl;
             _input.update();
             _input.pollEvents();
             _renderer.clear();
@@ -89,7 +114,7 @@ void Game::onMouseDown(int x, int y) {
 
 }
 void Game::onMouseUp(int x, int y) {
-    if(_state->currentPlayerIndex() != 0) return;
+    if(!isPlayerTurn()) return;
 
     if(_hoverCell != nullptr && _hoverCell->isOccupied() && _hoverCell->getPiece()->getPieceTeam() == PieceTeam::White) {
         _selectedCell = _hoverCell;

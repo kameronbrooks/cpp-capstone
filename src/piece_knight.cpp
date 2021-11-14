@@ -8,8 +8,13 @@ int Knight::getId() {
     return 2;
 }
 void Knight::loadSprites(Renderer* renderer) {
-    _blackSprite = std::unique_ptr<Sprite>(renderer->LoadSprite("../img/knight_black.png"));
-    _whiteSprite = std::unique_ptr<Sprite>(renderer->LoadSprite("../img/knight_white.png"));
+    auto func = [renderer](std::string&& path){ return renderer->LoadSprite(std::move(path));};
+
+    std::future<Sprite*> blk_future = std::async(std::launch::async, func, "../img/knight_black.png");
+    std::future<Sprite*> white_future = std::async(std::launch::async, func, "../img/knight_white.png");
+
+    _blackSprite = std::unique_ptr<Sprite>(blk_future.get());
+    _whiteSprite = std::unique_ptr<Sprite>(white_future.get());
 }
 
 void Knight::onTurnStart(GameState* gameState, Piece* piece) {

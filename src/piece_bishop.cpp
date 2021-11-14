@@ -8,8 +8,13 @@ int Bishop::getId() {
     return 3;
 }
 void Bishop::loadSprites(Renderer* renderer) {
-    _blackSprite = std::unique_ptr<Sprite>(renderer->LoadSprite("../img/bishop_black.png"));
-    _whiteSprite = std::unique_ptr<Sprite>(renderer->LoadSprite("../img/bishop_white.png"));
+    auto func = [renderer](std::string&& path){ return renderer->LoadSprite(std::move(path));};
+
+    std::future<Sprite*> blk_future = std::async(std::launch::async, func, "../img/bishop_black.png");
+    std::future<Sprite*> white_future = std::async(std::launch::async, func, "../img/bishop_white.png");
+
+    _blackSprite = std::unique_ptr<Sprite>(blk_future.get());
+    _whiteSprite = std::unique_ptr<Sprite>(white_future.get());
 }
 
 void Bishop::onTurnStart(GameState* gameState, Piece* piece) {
