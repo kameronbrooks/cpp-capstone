@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/chess.dir/src/piece_bishop.cpp.o"
   "CMakeFiles/chess.dir/src/piece_knight.cpp.o"
   "CMakeFiles/chess.dir/src/piece_pawn.cpp.o"
+  "CMakeFiles/chess.dir/src/piece_queen.cpp.o"
   "CMakeFiles/chess.dir/src/piece_rook.cpp.o"
   "CMakeFiles/chess.dir/src/piece_type.cpp.o"
   "CMakeFiles/chess.dir/src/renderer.cpp.o"

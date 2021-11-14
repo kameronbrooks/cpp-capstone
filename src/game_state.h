@@ -31,7 +31,9 @@ public:
     int currentTurn();
     int currentPlayerIndex();
     int incrementTurn();
-
+    void startTurn();
+    void endTurn();
+    
     Board& getBoard();
 
     void addPiece(PieceType* pieceType, PieceTeam team, int x, int y);

@@ -17,5 +17,12 @@
 enum PieceTeam {White = 0, Black = 1};
 enum AIState {Waiting = 0, Calculating = 1};
 
+const int PawnID = 1;
+const int KnightID = 2;
+const int BishopID = 3;
+const int RookID = 4;
+const int QueenID = 5;
+const int KingID = 6;
+
 
 #endif

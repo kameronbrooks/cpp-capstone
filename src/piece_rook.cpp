@@ -27,7 +27,7 @@ void Rook::onTurnEnd(GameState* gameState, Piece* piece) {
 void Rook::calculateMoves(Piece* piece, GameState* gameState ) {
     Cell* cell = piece->getCell();
 
-    while((cell = gameState->getBoard().getNeighbor(cell, 1, 1)) != nullptr) {
+    while((cell = gameState->getBoard().getNeighbor(cell, 1, 0)) != nullptr) {
         if(cell->isOccupied() && cell->getPiece()->getPieceTeam() == piece->getPieceTeam()) {
             break;
         }
@@ -38,7 +38,7 @@ void Rook::calculateMoves(Piece* piece, GameState* gameState ) {
     }
 
     cell = piece->getCell();
-    while((cell = gameState->getBoard().getNeighbor(cell, -1, 1)) != nullptr) {
+    while((cell = gameState->getBoard().getNeighbor(cell, -1, 0)) != nullptr) {
         if(cell->isOccupied() && cell->getPiece()->getPieceTeam() == piece->getPieceTeam()) {
             break;
         }
@@ -49,7 +49,7 @@ void Rook::calculateMoves(Piece* piece, GameState* gameState ) {
     }
 
     cell = piece->getCell();
-    while((cell = gameState->getBoard().getNeighbor(cell, -1, -1)) != nullptr) {
+    while((cell = gameState->getBoard().getNeighbor(cell, 0, -1)) != nullptr) {
         if(cell->isOccupied() && cell->getPiece()->getPieceTeam() == piece->getPieceTeam()) {
             break;
         }
@@ -60,7 +60,7 @@ void Rook::calculateMoves(Piece* piece, GameState* gameState ) {
     }
 
     cell = piece->getCell();
-    while((cell = gameState->getBoard().getNeighbor(cell, 1, -1)) != nullptr) {
+    while((cell = gameState->getBoard().getNeighbor(cell, 0, 1)) != nullptr) {
         if(cell->isOccupied() && cell->getPiece()->getPieceTeam() == piece->getPieceTeam()) {
             break;
         }

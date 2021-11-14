@@ -28,6 +28,7 @@ private:
     Knight _knightType;
     Bishop _bishopType;
     Rook _rookType;
+    Queen _queenType;
     
     void placePieces();
 
@@ -52,10 +53,15 @@ public:
     void render();
     void drawMoves();
 
+    void endGame(PieceTeam winner);
+    void startTurn();
+    void endTurn();
     void onExitApplication();
     void onMouseDown(int x, int y);
     void onMouseUp(int x, int y);
     void setMousePos(int x, int y);
+
+    PieceType* getPieceType(int id);
     
 };
 

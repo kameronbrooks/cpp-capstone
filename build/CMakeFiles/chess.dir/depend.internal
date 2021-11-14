@@ -15,6 +15,7 @@ CMakeFiles/chess.dir/src/ai.cpp.o
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_bishop.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_knight.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_queen.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_rook.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_types.h
@@ -50,6 +51,7 @@ CMakeFiles/chess.dir/src/game.cpp.o
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_bishop.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_knight.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_queen.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_rook.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_types.h
@@ -70,6 +72,7 @@ CMakeFiles/chess.dir/src/game_state.cpp.o
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_bishop.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_knight.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_queen.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_rook.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_types.h
@@ -93,6 +96,7 @@ CMakeFiles/chess.dir/src/main.cpp.o
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_bishop.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_knight.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_queen.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_rook.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_types.h
@@ -135,14 +139,35 @@ CMakeFiles/chess.dir/src/piece_knight.cpp.o
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
 CMakeFiles/chess.dir/src/piece_pawn.cpp.o
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/color.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_bishop.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_knight.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.cpp
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_queen.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_rook.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_types.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/relation_matrix.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
+CMakeFiles/chess.dir/src/piece_queen.cpp.o
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/color.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
- /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.cpp
- /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_queen.cpp
+ /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_queen.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/relation_matrix.h
  /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h

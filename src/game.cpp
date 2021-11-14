@@ -37,6 +37,7 @@ void Game::loadGameData() {
         std::thread knight_thread(func_load_piece_sprites, &_knightType);
         std::thread bishop_thread(func_load_piece_sprites, &_bishopType);
         std::thread rook_thread(func_load_piece_sprites, &_rookType);
+        std::thread queen_thread(func_load_piece_sprites, &_queenType);
         std::future<Sprite*> move_icon_sprite_ftr = std::async(std::launch::async, func_load_sprite, "../img/chess_icon_0.png");
 
         // Join all threads
@@ -44,6 +45,7 @@ void Game::loadGameData() {
         knight_thread.join();
         bishop_thread.join();
         rook_thread.join();
+        queen_thread.join();
         _moveIcon = std::unique_ptr<Sprite>(move_icon_sprite_ftr.get());
 
         // Handle exceptions in all threads
@@ -69,6 +71,7 @@ void Game::placePieces() {
     _state->addPiece(&_bishopType, PieceTeam::White, 5,0);
     _state->addPiece(&_rookType, PieceTeam::White, 0,0);
     _state->addPiece(&_rookType, PieceTeam::White, 7,0);
+    _state->addPiece(&_queenType, PieceTeam::White, 4,0);
     
     for(int i = 0; i < 8; ++i) {
         _state->addPiece(&_pawnType, PieceTeam::Black, i,6);
@@ -79,6 +82,7 @@ void Game::placePieces() {
     _state->addPiece(&_bishopType, PieceTeam::Black, 5,7);
     _state->addPiece(&_rookType, PieceTeam::Black, 0,7);
     _state->addPiece(&_rookType, PieceTeam::Black, 7,7);
+    _state->addPiece(&_queenType, PieceTeam::Black, 3,7);
 
     std::cout << "Done placing pieces" << std::endl;
 }
@@ -109,6 +113,27 @@ void Game::startGame() {
     }
 }
 
+void Game::startTurn() {
+    for(auto& piece: _state->getWhitePieces()) {
+        piece->getPieceType()->onTurnStart(_state.get(), piece.get());
+    }
+    for(auto& piece: _state->getBlackPieces()) {
+        piece->getPieceType()->onTurnStart(_state.get(), piece.get());
+    }
+}
+void Game::endTurn() {
+    for(auto& piece: _state->getWhitePieces()) {
+        piece->getPieceType()->onTurnEnd(_state.get(), piece.get());
+    }
+    for(auto& piece: _state->getBlackPieces()) {
+        piece->getPieceType()->onTurnEnd(_state.get(), piece.get());
+    }
+}
+
+void Game::endGame(PieceTeam winner) {
+    
+}
+
 GameState* Game::getState() {
     return _state.get();
 }
@@ -127,12 +152,15 @@ void Game::onMouseUp(int x, int y) {
         _selectedCell = _hoverCell;
     }
     else if(_selectedCell != nullptr && _selectedCell->isOccupied()) {
-        if(_hoverCell->isOccupied()) {
-            _state->removePiece(_hoverCell->getPiece());
+        if(_state.get()->getActionMatrix()->contains(_selectedCell->getPiece(), _hoverCell->getX(), _hoverCell->getY())) {
+            if(_hoverCell->isOccupied()) {
+                _state->removePiece(_hoverCell->getPiece());
+            }
+            _state->movePiece(_selectedCell->getPiece(), _hoverCell);
+            _state->incrementTurn();
+            _selectedCell = nullptr;
         }
-        _state->movePiece(_selectedCell->getPiece(), _hoverCell);
-        _state->incrementTurn();
-        _selectedCell = nullptr;
+        
     }
 }
 void Game::setMousePos(int x, int y) {
@@ -191,4 +219,23 @@ void Game::render() {
     }
     
     
+}
+
+PieceType* Game::getPieceType(int id) {
+    switch(id) {
+        case PawnID:
+            return &_pawnType;
+        case KnightID:
+            return &_knightType;
+        case BishopID:
+            return &_bishopType;
+        case RookID:
+            return &_rookType;
+        case QueenID:
+            return &_queenType;
+        case KingID:
+            return nullptr;
+        default:
+            return nullptr;
+    }
 }

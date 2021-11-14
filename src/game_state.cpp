@@ -1,5 +1,6 @@
 #include "game_state.h"
 #include "game.h"
+#include "piece.h"
 
 GameState::GameState(Game*game) : _board() {
     std::cout << "GameState Contructor" << std::endl;
@@ -20,8 +21,29 @@ int GameState::currentPlayerIndex() {
 int GameState::incrementTurn() {
     clearActions();
     calculateActions();
-    std::lock_guard<std::mutex> lock(_turnMutex);
-    return ++_currentTurn;
+    endTurn();
+    std::unique_lock<std::mutex> lock(_turnMutex);
+    ++_currentTurn;
+    lock.unlock();
+    startTurn();
+    return _currentTurn;
+}
+
+void GameState::startTurn() {
+    for(auto& piece: _whitePieces) {
+        piece->getPieceType()->onTurnStart(this, piece.get());
+    }
+    for(auto& piece: _blackPieces) {
+        piece->getPieceType()->onTurnStart(this, piece.get());
+    }
+}
+void GameState::endTurn() {
+    for(auto& piece: _whitePieces) {
+        piece->getPieceType()->onTurnEnd(this, piece.get());
+    }
+    for(auto& piece: _blackPieces) {
+        piece->getPieceType()->onTurnEnd(this, piece.get());
+    }
 }
 
 Board& GameState::getBoard() {
@@ -55,23 +77,45 @@ std::vector<std::unique_ptr<Piece>>& GameState::getBlackPieces() {
 }
 
 void GameState::movePiece(Piece* piece, Cell* cell) {
-    std::lock_guard<std::mutex> lock(_piecesMutex);
+    
     if(cell->isOccupied()) {
         removePiece(cell->getPiece());
     }
+    std::lock_guard<std::mutex> lock(_piecesMutex);
     cell->setPiece(piece);
     piece->moveTo(cell);
 }
 void GameState::movePiece(Piece* piece, int x, int y) {
-    std::lock_guard<std::mutex> lock(_piecesMutex);
     movePiece(piece, _board.getCell(x,y));
 }
 
 void GameState::removePiece(Piece* piece) {
+    std::cout<<"Removing Piece"<<std::endl;
     std::lock_guard<std::mutex> lock(_piecesMutex);
+    if(piece->getPieceTeam() == PieceTeam::White) {
+        auto iter = _whitePieces.begin();
+        while(iter != _whitePieces.end()) {
+            if(iter->get() == piece) {
+                _whitePieces.erase(iter);
+                return;
+            }
+            iter++;
+        }
+    } else {
+        auto iter = _blackPieces.begin();
+        while(iter != _blackPieces.end()) {
+            if(iter->get() == piece) {
+                _blackPieces.erase(iter);
+                return;
+            }
+            iter++;
+        }
+    }
+    std::cout<<"Piece Removed"<<std::endl;
 }
 void GameState::removePiece(int x, int y) {
-    std::lock_guard<std::mutex> lock(_piecesMutex);
+    Piece* p = _board.getCell(x,y)->getPiece();
+    removePiece(p);
 }
 
 void GameState::clearActions() {

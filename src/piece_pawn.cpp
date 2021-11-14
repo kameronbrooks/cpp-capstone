@@ -3,10 +3,11 @@
 #include "sprite.h"
 #include "cell.h"
 #include "game_state.h"
+#include "game.h"
 
 
 int Pawn::getId() {
-    return 1;
+    return PawnID;
 }
 void Pawn::loadSprites(Renderer* renderer) {
     auto func = [renderer](std::string&& path){ return renderer->LoadSprite(std::move(path));};
@@ -22,27 +23,33 @@ void Pawn::onTurnStart(GameState* gameState, Piece* piece) {
 
 }
 void Pawn::onTurnEnd(GameState* gameState, Piece* piece) {
-
+    if(piece->getPieceTeam() == PieceTeam::Black && piece->getCell()->getY() == 0) {
+        piece->setPieceType(gameState->getGame()->getPieceType(QueenID));
+    }
+    else if(piece->getPieceTeam() == PieceTeam::White && piece->getCell()->getY() == BOARD_HEIGHT-1) {
+        piece->setPieceType(gameState->getGame()->getPieceType(QueenID));
+    }
 }
 
 void Pawn::calculateMoves(Piece* piece, GameState* gameState ) {
-    Cell* cell = gameState->getBoard().getNeighbor(piece->getCell(), 0, 1);
+    int dirMult = (piece->getPieceTeam() == PieceTeam::White) ? 1 : -1;
+    Cell* cell = gameState->getBoard().getNeighbor(piece->getCell(), 0, 1*dirMult);
     // Move 0
     if(cell != nullptr && !cell->isOccupied()) {
         gameState->addAction(piece, cell);
     }
     // Move 1
-    cell = gameState->getBoard().getNeighbor(piece->getCell(), 1, 1);
+    cell = gameState->getBoard().getNeighbor(piece->getCell(), 1, 1*dirMult);
     if(cell != nullptr && cell->isOccupied() && cell->getPiece()->getPieceTeam() != piece->getPieceTeam()) {
         gameState->addAction(piece, cell);
     }
     // Move 2
-    cell = gameState->getBoard().getNeighbor(piece->getCell(), -1, 1);
+    cell = gameState->getBoard().getNeighbor(piece->getCell(), -1, 1*dirMult);
     if(cell != nullptr && cell->isOccupied() && cell->getPiece()->getPieceTeam() != piece->getPieceTeam()) {
         gameState->addAction(piece, cell);
     }
     // Move 3
-    cell = gameState->getBoard().getNeighbor(piece->getCell(), 0, 2);
+    cell = gameState->getBoard().getNeighbor(piece->getCell(), 0, 2*dirMult);
     if(cell != nullptr && piece->getTimesMoved() < 1 && !cell->isOccupied()) {
         gameState->addAction(piece, cell);
     }

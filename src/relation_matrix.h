@@ -29,6 +29,10 @@ public:
         }
     private:
         std::vector<T*> _items;
+    public:
+        std::vector<T*>& items() {
+            return _items;
+        }
     };
 private:
     RelationMatrix <T>::CellNode _matrix[BOARD_WIDTH][BOARD_HEIGHT];
@@ -49,6 +53,10 @@ public:
 
     bool contains(T* item, int x, int y) {
         return _matrix[x][y].contains(item);
+    }
+
+    std::vector<T*>& items(int x, int y) {
+        return _matrix[x][y].items();
     }
 
 };

@@ -16,6 +16,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_bishop.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/piece_bishop.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_knight.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/piece_knight.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/piece_pawn.cpp.o"
+  "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_queen.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/piece_queen.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_rook.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/piece_rook.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/piece_type.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/renderer.cpp.o"

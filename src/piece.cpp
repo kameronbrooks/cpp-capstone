@@ -67,7 +67,11 @@ int Piece::getTimesMoved() {
     return _timesMoved;
 }
 void Piece::moveTo(Cell* cell) {
+    if(_currentCell != nullptr) {
+        _currentCell->setPiece(nullptr);
+    }
     _currentCell = cell;
+    ++_timesMoved;
 }
 
 void Piece::setCell(Cell* cell) {

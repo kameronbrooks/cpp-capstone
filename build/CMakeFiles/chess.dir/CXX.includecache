@@ -6,20 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.cpp
-ai.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.h
-game.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
-thread
--
-chrono
--
-random
--
-cstdlib
--
-
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.h
 globals.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
@@ -41,16 +27,6 @@ globals.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/color.h
 iostream
 -
-
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.cpp
-game.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
-iostream
--
-exception
--
-globals.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
 chrono
@@ -77,6 +53,8 @@ game_state.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
 game.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
+piece.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
 string
@@ -110,16 +88,6 @@ thread
 SDL2/SDL.h
 -
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/main.cpp
-iostream
--
-renderer.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
-input_controller.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
-game.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
-
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
 cell.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
@@ -139,6 +107,10 @@ piece_type.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
+piece_type.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_queen.h
 piece_type.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
 
@@ -163,6 +135,8 @@ piece_bishop.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_bishop.h
 piece_rook.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_rook.h
+piece_queen.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_queen.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/relation_matrix.h
 memory

@@ -33,16 +33,61 @@ void AI::think() {
         std::unique_lock<std::mutex> cellLock(_targetCellMutex);
         cellLock.unlock();
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
         int i = 0;
-        int looks = std::rand() % 10;
-        while(i < looks) {
-            std::this_thread::sleep_for(std::chrono::milliseconds(500 + (std::rand() % 1000) ));
-            int x = std::rand() % BOARD_WIDTH;
-            int y = std::rand() % BOARD_HEIGHT;
-            cellLock.lock();
-            _targetCell = _gameState->getBoard().getCell(x,y);
-            cellLock.unlock();
+        
+        std::vector<Cell*> potentialMoves;
+        // Look for potential moves
+        for(int x = 0; x < BOARD_WIDTH; ++x) {
+            for(int y = 0; y < BOARD_HEIGHT; ++y) {
+                Cell* cell = _game->getState()->getBoard().getCell(x,y);
+                if((std::rand() % 400) < 50) {
+                    std::this_thread::sleep_for(std::chrono::milliseconds(10 + (std::rand() % 150) ));
+                }
+                
+                for(auto a: _game->getState()->getActionMatrix()->items(x,y)) {
+                    if(a->getPieceTeam() == PieceTeam::Black) {
+                        if(cell->isOccupied()) {
+                            potentialMoves.insert(potentialMoves.begin(), cell);
+                        } else {
+                            potentialMoves.push_back(cell);
+                        }
+                        cellLock.lock();
+                        _targetCell = _gameState->getBoard().getCell(x,y);
+                        cellLock.unlock();
+                        
+                    }
+                }
+            }
+        }
+        // If there are no available moves then end the game
+        if(potentialMoves.size() < 1)  {
+            _game->endGame(PieceTeam::White);
+            return;
+        }
+        
+        int index = (std::rand() % (potentialMoves.size()/4));
+        if(index >= potentialMoves.size()) {
+            index = potentialMoves.size()-1;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(100 + (std::rand() % 900) ));
+        int x = potentialMoves[index]->getX();
+        int y = potentialMoves[index]->getY();
+
+        cellLock.lock();
+        _targetCell = _gameState->getBoard().getCell(x,y);
+        cellLock.unlock();
+        
+        for(auto a: _game->getState()->getActionMatrix()->items(x,y)) {
+            if(a->getPieceTeam() == PieceTeam::Black) {
+                
+                std::this_thread::sleep_for(std::chrono::milliseconds(700));
+                _game->getState()->movePiece(a, _targetCell);
+                _game->getState()->incrementTurn();
+                lock.lock();
+                _aiState = AIState::Waiting;
+                return;
+            }
         }
 
 
