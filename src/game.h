@@ -8,6 +8,7 @@
 #include "globals.h"
 #include "piece_types.h"
 #include "relation_matrix.h"
+#include "ai.h"
 
 class Game: public InputControllerTarget  {
 private:
@@ -20,6 +21,7 @@ private:
     
     InputController _input;
     Renderer _renderer;
+    AI _ai;
     bool _running;
 
     Pawn _pawnType;
@@ -32,7 +34,8 @@ private:
     Cell* _hoverCell;
     Cell* _selectedCell;
     Color _uiColor{100,255,100,100};
-    Color _uiColor2{100,255,255,0};
+    Color _uiColor2{100,255,255,100};
+    Color _aiColor{255,100,255,100};
     std::unique_ptr<Sprite> _moveIcon;
     
 public:

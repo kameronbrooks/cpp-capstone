@@ -6,6 +6,28 @@
 
 #IncludeRegexTransform: 
 
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.cpp
+ai.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.h
+game.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
+thread
+-
+chrono
+-
+random
+-
+cstdlib
+-
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.h
+globals.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
+game_state.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
+mutex
+-
+
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
 cell.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
@@ -47,6 +69,14 @@ piece_types.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_types.h
 relation_matrix.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/relation_matrix.h
+ai.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.cpp
+game_state.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
+game.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
 string
@@ -54,6 +84,8 @@ string
 vector
 -
 memory
+-
+mutex
 -
 board.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.h
@@ -77,6 +109,16 @@ thread
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
 SDL2/SDL.h
 -
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/main.cpp
+iostream
+-
+renderer.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
+input_controller.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
+game.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
 cell.h

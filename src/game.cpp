@@ -4,7 +4,7 @@
 #include "globals.h"
 
 
-Game::Game() : _renderer(800, 800), _input() {
+Game::Game() : _renderer(800, 800), _input(), _ai(this) {
     //Game::_instance = this;
     
     _input.setTarget(this);
@@ -79,6 +79,8 @@ void Game::placePieces() {
     _state->addPiece(&_bishopType, PieceTeam::Black, 5,7);
     _state->addPiece(&_rookType, PieceTeam::Black, 0,7);
     _state->addPiece(&_rookType, PieceTeam::Black, 7,7);
+
+    std::cout << "Done placing pieces" << std::endl;
 }
 
 
@@ -97,6 +99,7 @@ void Game::startGame() {
         if(std::chrono::duration_cast<std::chrono::milliseconds>(now -_lastTime).count() >= TARGET_FRAME_RATE_MILIS) {
             _input.update();
             _input.pollEvents();
+            _ai.update();
             _renderer.clear();
             render();
             _renderer.updateScreen();
@@ -104,6 +107,10 @@ void Game::startGame() {
         }
         
     }
+}
+
+GameState* Game::getState() {
+    return _state.get();
 }
 
 bool Game::isPlayerTurn() {
@@ -171,6 +178,11 @@ void Game::render() {
     // draw selected cell
     if(_selectedCell != nullptr) {
         _renderer.drawRect(_selectedCell->getX()*cellSize, _selectedCell->getY()*cellSize, cellSize, cellSize, _uiColor);
+    }
+
+    if(_ai.getState() == AIState::Calculating && _ai.hasTargetCell()) {
+        Cell* aitarg = _ai.getTargetCell();
+        _renderer.drawRect(aitarg ->getX()*cellSize, aitarg ->getY()*cellSize, cellSize, cellSize, _aiColor);
     }
     
     // draw moves

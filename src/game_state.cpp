@@ -10,14 +10,17 @@ Game* GameState::getGame() {
     return _game;
 }
 int GameState::currentTurn() {
+    std::lock_guard<std::mutex> lock(_turnMutex);
     return _currentTurn;
 }
 int GameState::currentPlayerIndex() {
+    std::lock_guard<std::mutex> lock(_turnMutex);
     return _currentTurn % 2;
 }
 int GameState::incrementTurn() {
     clearActions();
     calculateActions();
+    std::lock_guard<std::mutex> lock(_turnMutex);
     return ++_currentTurn;
 }
 
@@ -32,6 +35,7 @@ void GameState::addPiece(PieceType* pieceType, PieceTeam team, int x, int y) {
     newPiece->setCell(cell);
     cell->setPiece(newPiece);
 
+    std::lock_guard<std::mutex> lock(_piecesMutex);
     if(team == PieceTeam::Black) {      
         _blackPieces.push_back(std::unique_ptr<Piece>(newPiece));
     }
@@ -42,13 +46,16 @@ void GameState::addPiece(PieceType* pieceType, PieceTeam team, int x, int y) {
 }
 
 std::vector<std::unique_ptr<Piece>>& GameState::getWhitePieces() {
+    std::lock_guard<std::mutex> lock(_piecesMutex);
     return _whitePieces;
 }
 std::vector<std::unique_ptr<Piece>>& GameState::getBlackPieces() {
+    std::lock_guard<std::mutex> lock(_piecesMutex);
     return _blackPieces;
 }
 
 void GameState::movePiece(Piece* piece, Cell* cell) {
+    std::lock_guard<std::mutex> lock(_piecesMutex);
     if(cell->isOccupied()) {
         removePiece(cell->getPiece());
     }
@@ -56,27 +63,32 @@ void GameState::movePiece(Piece* piece, Cell* cell) {
     piece->moveTo(cell);
 }
 void GameState::movePiece(Piece* piece, int x, int y) {
+    std::lock_guard<std::mutex> lock(_piecesMutex);
     movePiece(piece, _board.getCell(x,y));
 }
 
 void GameState::removePiece(Piece* piece) {
-
+    std::lock_guard<std::mutex> lock(_piecesMutex);
 }
 void GameState::removePiece(int x, int y) {
-
+    std::lock_guard<std::mutex> lock(_piecesMutex);
 }
 
 void GameState::clearActions() {
+    std::lock_guard<std::mutex> lock(_actionMutex);
     _moveMatrix.clear();
 }
 void GameState::addAction(Piece* piece, int x, int y) {
+    std::lock_guard<std::mutex> lock(_actionMutex);
     _moveMatrix.add(piece, x, y);
 }
 void GameState::addAction(Piece* piece, Cell* cell) {
+    std::lock_guard<std::mutex> lock(_actionMutex);
     _moveMatrix.add(piece, cell->getX(), cell->getY());
 }
 
 void GameState::calculateActions() {
+
     for(auto& piece:_whitePieces) {
         piece->calculate(this);
     }
@@ -86,5 +98,6 @@ void GameState::calculateActions() {
 }
 
 RelationMatrix<Piece>* GameState::getActionMatrix() {
+    std::lock_guard<std::mutex> lock(_actionMutex);
     return &_moveMatrix;
 }

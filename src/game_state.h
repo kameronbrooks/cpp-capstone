@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <mutex>
 #include "board.h"
 #include "piece.h"
 #include "relation_matrix.h"
@@ -18,6 +19,10 @@ private:
 
     std::vector<std::unique_ptr<Piece>> _whitePieces;
     std::vector<std::unique_ptr<Piece>> _blackPieces;
+
+    std::mutex _turnMutex;
+    std::mutex _piecesMutex;
+    std::mutex _actionMutex;
 
 
 public:

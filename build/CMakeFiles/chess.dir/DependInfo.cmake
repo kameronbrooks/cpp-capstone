@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/ai.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/board.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/board.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/cell.cpp.o"
   "/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/color.cpp" "/home/kameron/Documents/code/cpp capstone/cpp-capstone/build/CMakeFiles/chess.dir/src/color.cpp.o"
