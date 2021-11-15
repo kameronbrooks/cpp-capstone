@@ -14,6 +14,9 @@ private:
     std::mutex _stateMutex;
     Game* _game;
     GameState* _gameState;
+
+    void randomize(std::vector<Cell*>& list, int count = 24);
+    int getCellValue(Cell* cell);
 public:
     AI(Game* game);
     AIState getState();
@@ -21,6 +24,8 @@ public:
     bool hasTargetCell();
     void think();
     void update();
+
+    
 };
 
 

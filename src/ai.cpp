@@ -23,6 +23,40 @@ bool AI::hasTargetCell() {
     std::lock_guard<std::mutex> lock(_targetCellMutex);
     return _targetCell != nullptr;
 }
+
+int AI::getCellValue(Cell* cell) {
+    if(!cell->isOccupied())
+        return 0;
+    else
+        return cell->getPiece()->getPieceType()->getId();
+}
+
+void AI::randomize(std::vector<Cell*>& list, int count) {
+    int j = 0;
+    while(j<count) {
+        Cell* temp;
+        for(int i = 1; i < list.size(); ++i) {
+            
+            int v0 = getCellValue(list[i-1]);
+            int v1 = getCellValue(list[i]);
+            if(v0 < v1) {
+                temp = list[i];
+                list[i] = list[i-1];
+                list[i-1] = temp; 
+            }
+            else if(v0 == v1) {
+                if((rand() % 10) < 3) {
+                    temp = list[i];
+                    list[i] = list[i-1];
+                    list[i-1] = temp;         
+                }
+            }
+            
+        }
+        ++j;
+    }
+}
+
 void AI::think() {
     _gameState = _game->getState();
     std::thread t([this]() {
@@ -65,11 +99,10 @@ void AI::think() {
             _game->endGame(PieceTeam::White);
             return;
         }
+
+        randomize(potentialMoves);
         
-        int index = (std::rand() % (potentialMoves.size()/4));
-        if(index >= potentialMoves.size()) {
-            index = potentialMoves.size()-1;
-        }
+        int index = 0;
         std::this_thread::sleep_for(std::chrono::milliseconds(100 + (std::rand() % 900) ));
         int x = potentialMoves[index]->getX();
         int y = potentialMoves[index]->getY();

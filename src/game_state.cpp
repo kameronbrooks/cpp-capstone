@@ -90,7 +90,7 @@ void GameState::movePiece(Piece* piece, int x, int y) {
 }
 
 void GameState::removePiece(Piece* piece) {
-    std::cout<<"Removing Piece"<<std::endl;
+
     std::lock_guard<std::mutex> lock(_piecesMutex);
     if(piece->getPieceTeam() == PieceTeam::White) {
         auto iter = _whitePieces.begin();
@@ -111,7 +111,7 @@ void GameState::removePiece(Piece* piece) {
             iter++;
         }
     }
-    std::cout<<"Piece Removed"<<std::endl;
+
 }
 void GameState::removePiece(int x, int y) {
     Piece* p = _board.getCell(x,y)->getPiece();
