@@ -9,9 +9,12 @@ std::string PieceType::getName() {
 }
 
 void PieceType::onTurnStart(GameState* gameState, Piece* piece) {
-
+    
 }
 void PieceType::onTurnEnd(GameState* gameState, Piece* piece) {
+
+}
+void PieceType::onCaptured(GameState* gameState, Piece* piece) {
 
 }
 

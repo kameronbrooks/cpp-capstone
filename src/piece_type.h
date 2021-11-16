@@ -23,6 +23,7 @@ public:
 
     virtual void onTurnStart(GameState* gameState, Piece* piece);
     virtual void onTurnEnd(GameState* gameState, Piece* piece);
+    virtual void onCaptured(GameState* gameState, Piece* piece);
 
     virtual void calculateMoves(Piece* piece, GameState* gameState )=0;
 

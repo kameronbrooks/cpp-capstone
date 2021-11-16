@@ -38,6 +38,7 @@ void Game::loadGameData() {
         std::thread bishop_thread(func_load_piece_sprites, &_bishopType);
         std::thread rook_thread(func_load_piece_sprites, &_rookType);
         std::thread queen_thread(func_load_piece_sprites, &_queenType);
+        std::thread king_thread(func_load_piece_sprites, &_kingType);
         std::future<Sprite*> move_icon_sprite_ftr = std::async(std::launch::async, func_load_sprite, "../img/chess_icon_0.png");
 
         // Join all threads
@@ -46,6 +47,7 @@ void Game::loadGameData() {
         bishop_thread.join();
         rook_thread.join();
         queen_thread.join();
+        king_thread.join();
         _moveIcon = std::unique_ptr<Sprite>(move_icon_sprite_ftr.get());
 
         // Handle exceptions in all threads
@@ -71,7 +73,8 @@ void Game::placePieces() {
     _state->addPiece(&_bishopType, PieceTeam::White, 5,0);
     _state->addPiece(&_rookType, PieceTeam::White, 0,0);
     _state->addPiece(&_rookType, PieceTeam::White, 7,0);
-    _state->addPiece(&_queenType, PieceTeam::White, 4,0);
+    _state->addPiece(&_queenType, PieceTeam::White, 3,0);
+    _state->addPiece(&_kingType, PieceTeam::White, 4,0);
     
     for(int i = 0; i < 8; ++i) {
         _state->addPiece(&_pawnType, PieceTeam::Black, i,6);
@@ -82,7 +85,8 @@ void Game::placePieces() {
     _state->addPiece(&_bishopType, PieceTeam::Black, 5,7);
     _state->addPiece(&_rookType, PieceTeam::Black, 0,7);
     _state->addPiece(&_rookType, PieceTeam::Black, 7,7);
-    _state->addPiece(&_queenType, PieceTeam::Black, 3,7);
+    _state->addPiece(&_queenType, PieceTeam::Black, 4,7);
+    _state->addPiece(&_kingType, PieceTeam::Black, 3,7);
 
     std::cout << "Done placing pieces" << std::endl;
 }
@@ -113,25 +117,10 @@ void Game::startGame() {
     }
 }
 
-void Game::startTurn() {
-    for(auto& piece: _state->getWhitePieces()) {
-        piece->getPieceType()->onTurnStart(_state.get(), piece.get());
-    }
-    for(auto& piece: _state->getBlackPieces()) {
-        piece->getPieceType()->onTurnStart(_state.get(), piece.get());
-    }
-}
-void Game::endTurn() {
-    for(auto& piece: _state->getWhitePieces()) {
-        piece->getPieceType()->onTurnEnd(_state.get(), piece.get());
-    }
-    for(auto& piece: _state->getBlackPieces()) {
-        piece->getPieceType()->onTurnEnd(_state.get(), piece.get());
-    }
-}
+
 
 void Game::endGame(PieceTeam winner) {
-    
+    _state->winner() = winner;
 }
 
 GameState* Game::getState() {
@@ -146,7 +135,7 @@ void Game::onMouseDown(int x, int y) {
 
 }
 void Game::onMouseUp(int x, int y) {
-    if(!isPlayerTurn()) return;
+    if(!isPlayerTurn() || _state->isGameOver()) return;
 
     if(_hoverCell != nullptr && _hoverCell->isOccupied() && _hoverCell->getPiece()->getPieceTeam() == PieceTeam::White) {
         _selectedCell = _hoverCell;
@@ -212,6 +201,13 @@ void Game::render() {
         Cell* aitarg = _ai.getTargetCell();
         _renderer.drawRect(aitarg ->getX()*cellSize, aitarg ->getY()*cellSize, cellSize, cellSize, _aiColor);
     }
+
+    if(_state->winner() == (int)PieceTeam::Black) {
+        _renderer.drawRect(0, 0, WINDOW_SIZE, WINDOW_SIZE, _loseColor);
+    }
+    else if(_state->winner() == (int)PieceTeam::White) {
+        _renderer.drawRect(0, 0, WINDOW_SIZE, WINDOW_SIZE, _winColor);
+    }
     
     // draw moves
     if(isPlayerTurn() && _selectedCell != nullptr) {
@@ -234,7 +230,7 @@ PieceType* Game::getPieceType(int id) {
         case QueenID:
             return &_queenType;
         case KingID:
-            return nullptr;
+            return &_kingType;
         default:
             return nullptr;
     }

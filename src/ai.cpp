@@ -132,6 +132,8 @@ void AI::think() {
 }
 
 void AI::update() {
+    if(_game->getState()->isGameOver())
+        return;
     if(_aiState == AIState::Waiting && !_game->isPlayerTurn()!=0) {
         think();
     }

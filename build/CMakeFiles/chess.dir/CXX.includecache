@@ -72,14 +72,6 @@ relation_matrix.h
 ai.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.h
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.cpp
-game_state.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
-game.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
-piece.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
-
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
 string
 -
@@ -112,16 +104,6 @@ thread
 SDL2/SDL.h
 -
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/main.cpp
-iostream
--
-renderer.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
-input_controller.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/input_controller.h
-game.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
-
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
 cell.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
@@ -136,23 +118,13 @@ future
 piece_type.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_knight.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_king.h
 piece_type.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.cpp
-piece_pawn.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
-renderer.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/renderer.h
-sprite.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/sprite.h
-cell.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/cell.h
-game_state.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
-game.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_knight.h
+piece_type.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_type.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_pawn.h
 piece_type.h
@@ -185,6 +157,8 @@ piece_rook.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_rook.h
 piece_queen.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_queen.h
+piece_king.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece_king.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/relation_matrix.h
 memory

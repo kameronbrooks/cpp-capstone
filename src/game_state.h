@@ -14,6 +14,7 @@ class GameState {
 private:
     Game* _game;
     int _currentTurn;
+    int _winner;
     Board _board;
     RelationMatrix<Piece> _moveMatrix;
 
@@ -33,7 +34,12 @@ public:
     int incrementTurn();
     void startTurn();
     void endTurn();
-    
+
+    int winner() const;
+    int& winner();
+
+    bool isGameOver();
+
     Board& getBoard();
 
     void addPiece(PieceType* pieceType, PieceTeam team, int x, int y);
@@ -53,6 +59,8 @@ public:
     void addAction(Piece* piece, Cell* cell);
 
     RelationMatrix<Piece>* getActionMatrix();
+
+    bool isCellGuarded(Cell* cell, PieceTeam guardingTeam);
 
 
 };

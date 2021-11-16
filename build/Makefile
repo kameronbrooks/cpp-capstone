@@ -393,6 +393,33 @@ src/piece_bishop.cpp.s:
 	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece_bishop.cpp.s
 .PHONY : src/piece_bishop.cpp.s
 
+src/piece_king.o: src/piece_king.cpp.o
+
+.PHONY : src/piece_king.o
+
+# target to build an object file
+src/piece_king.cpp.o:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece_king.cpp.o
+.PHONY : src/piece_king.cpp.o
+
+src/piece_king.i: src/piece_king.cpp.i
+
+.PHONY : src/piece_king.i
+
+# target to preprocess a source file
+src/piece_king.cpp.i:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece_king.cpp.i
+.PHONY : src/piece_king.cpp.i
+
+src/piece_king.s: src/piece_king.cpp.s
+
+.PHONY : src/piece_king.s
+
+# target to generate assembly for a file
+src/piece_king.cpp.s:
+	$(MAKE) -f CMakeFiles/chess.dir/build.make CMakeFiles/chess.dir/src/piece_king.cpp.s
+.PHONY : src/piece_king.cpp.s
+
 src/piece_knight.o: src/piece_knight.cpp.o
 
 .PHONY : src/piece_knight.o
@@ -621,6 +648,9 @@ help:
 	@echo "... src/piece_bishop.o"
 	@echo "... src/piece_bishop.i"
 	@echo "... src/piece_bishop.s"
+	@echo "... src/piece_king.o"
+	@echo "... src/piece_king.i"
+	@echo "... src/piece_king.s"
 	@echo "... src/piece_knight.o"
 	@echo "... src/piece_knight.i"
 	@echo "... src/piece_knight.s"

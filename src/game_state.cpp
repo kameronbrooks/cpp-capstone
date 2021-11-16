@@ -6,10 +6,23 @@ GameState::GameState(Game*game) : _board() {
     std::cout << "GameState Contructor" << std::endl;
     _game = game;
     _currentTurn = 0;
+    _winner = -1;
 }
 Game* GameState::getGame() {
     return _game;
 }
+
+int GameState::winner() const {
+    return _winner;
+}
+int& GameState::winner() {
+    return _winner;
+}
+
+bool GameState::isGameOver() {
+    return _winner != -1;
+}
+
 int GameState::currentTurn() {
     std::lock_guard<std::mutex> lock(_turnMutex);
     return _currentTurn;
@@ -92,6 +105,7 @@ void GameState::movePiece(Piece* piece, int x, int y) {
 void GameState::removePiece(Piece* piece) {
 
     std::lock_guard<std::mutex> lock(_piecesMutex);
+    piece->getPieceType()->onCaptured(this, piece);
     if(piece->getPieceTeam() == PieceTeam::White) {
         auto iter = _whitePieces.begin();
         while(iter != _whitePieces.end()) {
@@ -144,4 +158,13 @@ void GameState::calculateActions() {
 RelationMatrix<Piece>* GameState::getActionMatrix() {
     std::lock_guard<std::mutex> lock(_actionMutex);
     return &_moveMatrix;
+}
+
+bool GameState::isCellGuarded(Cell* cell, PieceTeam guardingTeam) {
+    for(auto piece: _moveMatrix.items(cell->getX(), cell->getY())) {
+        if(piece->getPieceTeam() == guardingTeam) {
+            return true;
+        }
+    }
+    return false;
 }
