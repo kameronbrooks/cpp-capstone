@@ -24,6 +24,9 @@ public:
     InputController();
     InputController(const InputController& other);
     ~InputController();
+
+    InputController& operator=(const InputController& other);
+    InputController& operator=(InputController&& other);
 };
 
 #endif

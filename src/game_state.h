@@ -25,6 +25,9 @@ private:
     std::mutex _piecesMutex;
     std::mutex _actionMutex;
 
+    // how many actions are available for each team
+    int _actionCount[2];
+
 
 public:
     GameState(Game*game);
@@ -62,6 +65,7 @@ public:
 
     bool isCellGuarded(Cell* cell, PieceTeam guardingTeam);
 
+    int availableActionCount(PieceTeam team);
 
 };
 

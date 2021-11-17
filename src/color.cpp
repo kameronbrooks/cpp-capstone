@@ -31,6 +31,9 @@ Color::Color(Color&& other) {
     data[2] = other.data[2];
     data[3] = other.data[3];
 }
+Color::~Color() {
+
+}
 
 uint8_t& Color::r(){
     return data[0];
@@ -57,10 +60,14 @@ Color& Color::operator=(const Color& other) {
     data[1] = other.data[1];
     data[2] = other.data[2];
     data[3] = other.data[3];
+
+    return *this;
 }
 Color& Color::operator=(Color&& other) {
     data[0] = other.data[0];
     data[1] = other.data[1];
     data[2] = other.data[2];
     data[3] = other.data[3];
+
+    return *this;
 }

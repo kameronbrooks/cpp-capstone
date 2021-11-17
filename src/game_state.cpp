@@ -34,6 +34,10 @@ int GameState::currentPlayerIndex() {
 int GameState::incrementTurn() {
     clearActions();
     calculateActions();
+    if(_actionCount[0] == 0)
+        _game->endGame(PieceTeam::Black);
+    if(_actionCount[1] == 0)
+        _game->endGame(PieceTeam::White);
     endTurn();
     std::unique_lock<std::mutex> lock(_turnMutex);
     ++_currentTurn;
@@ -135,14 +139,15 @@ void GameState::removePiece(int x, int y) {
 void GameState::clearActions() {
     std::lock_guard<std::mutex> lock(_actionMutex);
     _moveMatrix.clear();
+    _actionCount[0] = _actionCount[1] = 0;
 }
 void GameState::addAction(Piece* piece, int x, int y) {
     std::lock_guard<std::mutex> lock(_actionMutex);
     _moveMatrix.add(piece, x, y);
+    ++_actionCount[(int)piece->getPieceTeam()];
 }
 void GameState::addAction(Piece* piece, Cell* cell) {
-    std::lock_guard<std::mutex> lock(_actionMutex);
-    _moveMatrix.add(piece, cell->getX(), cell->getY());
+    addAction(piece, cell->getX(), cell->getY());
 }
 
 void GameState::calculateActions() {
@@ -167,4 +172,8 @@ bool GameState::isCellGuarded(Cell* cell, PieceTeam guardingTeam) {
         }
     }
     return false;
+}
+
+int GameState::availableActionCount(PieceTeam team) {
+    return _actionCount[(int)team];
 }

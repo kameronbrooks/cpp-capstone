@@ -6,20 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.cpp
-ai.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.h
-game.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
-thread
--
-chrono
--
-random
--
-cstdlib
--
-
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.h
 globals.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
@@ -42,16 +28,6 @@ globals.h
 iostream
 -
 
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.cpp
-game.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
-iostream
--
-exception
--
-globals.h
-/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/globals.h
-
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
 chrono
 -
@@ -71,6 +47,14 @@ relation_matrix.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/relation_matrix.h
 ai.h
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/ai.h
+
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.cpp
+game_state.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
+game.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game.h
+piece.h
+/home/kameron/Documents/code/cpp capstone/cpp-capstone/src/piece.h
 
 /home/kameron/Documents/code/cpp capstone/cpp-capstone/src/game_state.h
 string

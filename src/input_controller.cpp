@@ -46,3 +46,15 @@ InputController::InputController(const InputController& other) {
 InputController::~InputController() {
 
 }
+
+InputController& InputController::operator=(const InputController& other) {
+    _target = other._target;
+    return *this;
+}
+InputController& InputController::operator=(InputController&& other) {
+    if(&other != this) {
+        _target = other._target;
+        other._target == nullptr;
+    }
+    return *this;
+}

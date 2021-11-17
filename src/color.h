@@ -19,6 +19,7 @@ public:
     Color(int32_t col);
     Color(const Color& other);
     Color(Color&& other);
+    ~Color();
 
     Color& operator=(const Color& other);
     Color& operator=(Color&& other);
